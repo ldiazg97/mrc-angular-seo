@@ -1,0 +1,7 @@
+:host{
+  grid-area: nav;
+  background-color: rgb(32, 42, 98);
+  position: fixed;
+  height: 100%;
+  width: var(--nav-width);
+}
