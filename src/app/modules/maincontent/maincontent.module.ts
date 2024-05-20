@@ -4,6 +4,10 @@ import { SupportComponent } from './support/support.component';
 import { WebsiteComponent } from './website/website.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 
+import { MatTableModule } from '@angular/material/table';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 
 @NgModule({
@@ -12,9 +16,12 @@ import { SubscriptionComponent } from './subscription/subscription.component';
     CommonModule,
     SupportComponent,
     WebsiteComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    MatTableModule,
+    MatToolbarModule
+
   ],
-  exports:[
+  exports: [
     SupportComponent,
     WebsiteComponent,
     SubscriptionComponent

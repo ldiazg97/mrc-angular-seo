@@ -14,5 +14,12 @@
   ],
   "include": [
     "src/**/*.d.ts"
-  ]
+  ],
+  "content": [
+    "./src/**/*.{html,ts}",
+  ],
+  "theme": {
+    "extend": {},
+  },
+  "plugins": [],
 }

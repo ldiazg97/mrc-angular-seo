@@ -1,0 +1,34 @@
+<mat-toolbar class="custom-toolbar">
+    <mat-icon fontIcon="format_align_left" class="icon-left-margin"></mat-icon>
+    <span>SITIOS WEB COMPARTIDOS</span>
+</mat-toolbar>
+
+  
+
+  <div class="linea-separadora"></div> <!-- Divisor -->
+  
+  <p-table 
+    [value]="sitiosWebCompartidos" 
+    styleClass="p-datatable-striped" 
+    [tableStyle]="{'min-width': '50rem'}">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>#</th>
+              <th>Sitios Web</th>
+              <th>Compartido a</th>
+              <th>Rol Compartido</th>
+              <th>Fecha</th>
+              <th>Acción</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-sitioWeb>
+          <tr>
+              <td>{{sitioWeb.numeroSitioWeb}}</td>
+              <td>{{sitioWeb.sitioWeb}}</td>
+              <td>{{sitioWeb.compartidoA}}</td>
+              <td>{{sitioWeb.rolC}}</td>
+              <td>{{sitioWeb.fecha}}</td>
+              <td></td>
+          </tr>
+      </ng-template>
+  </p-table>

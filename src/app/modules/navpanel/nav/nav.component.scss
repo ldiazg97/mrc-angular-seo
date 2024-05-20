@@ -1,7 +1,60 @@
-:host{
+:host {
   grid-area: nav;
-  background-color: rgb(32, 42, 98);
+  background-color: #202a62;
   position: fixed;
   height: 100%;
   width: var(--nav-width);
+}
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+#nav {
+  flex-grow: 1;
+}
+
+.bottom-bar {
+  background-color: #21395c;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start; /* Cambiar para alinear a la izquierda */
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0; /* Fija la barra en la parte inferior */
+}
+
+.round-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #21395c; /* Mismo color de fondo que la barra */
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transición suave para el hover */
+}
+
+.round-button mat-icon {
+  font-size: 20px;
+  color: white;
+}
+
+.round-button:hover {
+  background-color: gray; /* Color de fondo actual en hover */
+}
+
+.active-link {
+  background-color: #21395c;
+  border-right: 6px solid orange;
+}
+
+.contenedor-botones .p-button {
+  margin-right: 5px; /* Ajusta el margen entre botones según sea necesario */
 }

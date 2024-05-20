@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
 
+import { MatTableModule } from '@angular/material/table';
+
 
 
 @NgModule({
@@ -10,7 +12,7 @@ import { NavComponent } from './nav/nav.component';
   imports: [
     CommonModule,
     HeaderComponent,
-    NavComponent
+    NavComponent,
   ],
   exports:[
     HeaderComponent,
