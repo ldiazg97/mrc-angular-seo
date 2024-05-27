@@ -1,18 +1,23 @@
 <main>
-  <div class="menulat" >
-    <button type="menu" class="mybuttom">
-      🟰
-    </button>
+  <div class="menulat">
+    <button pButton type="button" class="mybutton" icon="pi pi-bars"></button>
   </div>
   <div class="seguimiento">
-
+    <app-seguimiento></app-seguimiento>
   </div>
   <div class="usersection">
     <div class="user-area">
-      <p>🔔</p>
-      <img class="user-avatar" src="" alt="😶">
-      <menu></menu>
+      <div class="notification-wrapper">
+        <i class="pi pi-bell notification-icon"></i>
+        <span class="badge">2</span>
+      </div>
+      <button pButton type="button" class="menu-button" icon="pi pi-user" (click)="toggleMenu()"></button>
+      <div class="dropdown-menu" [style.display]="menuVisible ? 'block' : 'none'">
+        <ul>
+          <li (click)="login()">Perfil <i class="pi pi-user"></i></li>
+          <li (click)="logout()">Salir <i class="pi pi-sign-out"></i></li>
+        </ul>
+      </div>
     </div>
   </div>
-
 </main>

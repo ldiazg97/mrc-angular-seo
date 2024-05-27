@@ -1,50 +1,110 @@
-main{
+main {
   display: grid;
-  grid-template-columns:
-  66px 1fr 125px;
+  grid-template-columns: 66px 1fr 125px;
   grid-template-areas: "menulat seguimiento usersection";
-
+  height: 50px;
+  align-items: center;
+  padding-right: 20px; /* Add padding to the right side of main */
 }
 
-.menulat{
+.menulat {
   grid-area: menulat;
-  align-self: center;
-
-   .mybuttom{
-    border: none;
-    cursor: pointer;
-  }
-  .mybuttom:hover{
-    background-color: rgb(217, 222, 228);
-  }
+  margin-left: 10px;
 }
 
-.seguimiento{
+.mybutton {
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 0;
+}
+
+.seguimiento {
   grid-area: seguimiento;
   text-align: right;
 }
-.usersection{
+
+.usersection {
   grid-area: usersection;
-  align-content: center;
-
-  & .user-area {
-    display: flex;
-    align-items: center;
-  }
-
-  & .user-avatar {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    background-color: black;
-  }
-
-  & .desplegable{
-    border: transparent;
-    margin-left: 10px;
-    cursor: pointer;
-  }
-
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
+.user-area {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
 
+.notification-wrapper {
+  position: relative;
+  margin-right: 20px; /* Margin between buttons */
+}
+
+.notification-icon {
+  font-size: 24px;
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #FFA500;
+  color: black;
+  border-radius: 50%;
+  padding: 3px 6px;
+  font-size: 12px;
+  line-height: 1; /* Ensure text is centered */
+}
+
+.menu-button {
+  background-color: #337ab7;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 10px; /* Add margin between buttons */
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.dropdown-menu ul li {
+  padding: 10px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-menu ul li i {
+  margin-left: 10px;
+}
+
+.dropdown-menu ul li:hover {
+  background-color: #f0f0f0;
+}
+
+.show {
+  display: block;
+}
