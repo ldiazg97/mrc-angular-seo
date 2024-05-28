@@ -1,18 +1,30 @@
 <main>
-  <div class="menulat" >
-    <button type="menu" class="mybuttom">
-      🟰
-    </button>
-  </div>
-  <div class="seguimiento">
-
-  </div>
   <div class="usersection">
     <div class="user-area">
-      <p>🔔</p>
-      <img class="user-avatar" src="" alt="😶">
-      <menu></menu>
+      <div class="button-group">
+        <p-splitButton label="Seguimiento" [model]="seguimientoItems" icon="pi pi-check-circle">
+          <span class="button-label" (click)="seguimientoClick()">Seguimiento</span>
+        </p-splitButton>
+        <p-splitButton label="Configurar" [model]="configurarItems" icon="pi pi-cog">
+          <span class="button-label" (click)="configurarClick()">Configurar</span>
+        </p-splitButton>
+        <p-splitButton label="Auditoría" [model]="auditoriaItems" icon="pi pi-lock">
+          <span class="button-label" (click)="auditoriaClick()">Auditoría</span>
+        </p-splitButton>
+      </div>
+      <div class="notification-wrapper">
+        <i class="pi pi-bell notification-icon"></i>
+        <span class="badge">2</span>
+      </div>
+      <button type="button" class="menu-button" (click)="toggleMenu()">
+        <i class="pi pi-user"></i>
+      </button>
+      <div class="dropdown-menu" [ngClass]="{'show': menuVisible}">
+        <ul>
+          <li (click)="login()">Perfil <i class="pi pi-user"></i></li>
+          <li (click)="logout()">Salir <i class="pi pi-sign-out"></i></li>
+        </ul>
+      </div>
     </div>
   </div>
-
 </main>

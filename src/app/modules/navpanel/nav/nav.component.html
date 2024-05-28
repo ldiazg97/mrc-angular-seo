@@ -7,6 +7,7 @@
       [routerLink]="item.path"
       routerLinkActive="active-link"
       class="w-full px-2 inline-flex items-center border-b border-slate-700 py-3 hover:bg-white/5 transition ease-linear duration-150">
+        <i class="pi pi-{{item.data && item.data['icon']}} mr-4"></i>
         <div class="flex flex-col">
           <span class="text-lg font-bold leading-8 text-white">{{item.data && item.data['title']}}</span>
         </div>
@@ -21,4 +22,3 @@
     </button>
   </div>
 </div>
-

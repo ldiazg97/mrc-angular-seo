@@ -1,50 +1,64 @@
-#home {
-  display: grid;
-  width: 100%;
-  height: 250px;
-  grid-template-areas:
-    "nav head"
-    "nav  main"
-    "nav  foot";
-  // grid-template-rows: 50px 1fr 30px;
-  grid-template-columns: var(--nav-width) 1fr;
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
- #home> header {
+#home {
+  display: grid;
+  grid-template-areas:
+    "nav head"
+    "nav main";
+  grid-template-rows: auto 1fr;
+  grid-template-columns: var(--nav-width) 1fr;
+  height: 100vh;
+  overflow: hidden; /* Oculta el desbordamiento para el contenedor principal */
+}
+
+#home > header {
   grid-area: head;
   border-bottom: solid 1px rgb(217, 222, 228);
   background-color: rgb(237, 237, 237);
 }
 
-
 header, nav, footer {
   flex: 0 0 auto; /* No cambia de tamaño */
 }
 
+#home > nav {
+  grid-area: nav;
+  background-color: #f8f8f8;
+}
 
 #home > main {
   grid-area: main;
-  height: 830px;
-  background-color: rgb(247, 247, 247) ;
+  background-color: rgb(247, 247, 247);
+  overflow-y: auto; /* Permite el scroll vertical */
+  padding-bottom: 50px; /* Añade espacio inferior para que el contenido no quede oculto tras el footer */
 }
 
-#home > footer {
+footer {
   grid-area: foot;
   height: 50px;
-  align-content: center;
-  text-align: right;
+  display: flex; /* Para centrar el contenido verticalmente */
+  align-items: center; /* Centrar verticalmente */
+  justify-content: right; /* Centrar horizontalmente */
+  text-align: center;
   font-size: small;
   color: rgb(120, 140, 160);
-  // border-top: solid 1px black;
   background-color: rgb(255, 255, 255);
-  & a{
-    text-decoration: none;
-    color: rgb(35, 82, 124);
-  }
-  & p{
-    margin-right: 20px;
-  }
-
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* Opcional: Añadir sombra para destacar */
+  position: fixed; /* Fija el footer en la parte inferior */
+  bottom: 0;
+  left: var(--nav-width); /* Alinea el footer con el contenido principal */
+  width: calc(100% - var(--nav-width)); /* Ajusta el ancho del footer */
 }
 
+footer p {
+  margin: 0;
+  margin-right: 10px;
+}
 
+footer a {
+  text-decoration: none;
+  color: rgb(35, 82, 124);
+}
