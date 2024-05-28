@@ -19,9 +19,20 @@ main {
   padding: 0;
 }
 
-.seguimiento {
-  grid-area: seguimiento;
-  text-align: right;
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 15px;
+}
+
+.button-label {
+  cursor: pointer;
+}
+
+.button-icon {
+  font-size: 1.5rem; /* Tamaño del icono */
+  vertical-align: middle; /* Alinear verticalmente con el texto */
 }
 
 .usersection {
@@ -44,6 +55,16 @@ main {
 
 .notification-icon {
   font-size: 24px;
+}
+
+.notification-wrapper .notification-icon,
+.menu-button {
+  transition: transform 0.3s ease; /* Añadir transición a los botones */
+}
+
+.notification-wrapper .notification-icon:hover,
+.menu-button:hover {
+  transform: scale(1.1); /* Agrandar ligeramente al pasar el cursor */
 }
 
 .badge {
@@ -81,6 +102,15 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   z-index: 1000;
+  opacity: 0; /* Añadir opacidad para animación */
+  transform: translateY(-10px); /* Añadir transformación para animación */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Definir la transición */
+}
+
+.dropdown-menu.show {
+  display: block;
+  opacity: 1; /* Mostrar el menú */
+  transform: translateY(0); /* Restablecer la transformación */
 }
 
 .dropdown-menu ul {
@@ -103,8 +133,4 @@ main {
 
 .dropdown-menu ul li:hover {
   background-color: #f0f0f0;
-}
-
-.show {
-  display: block;
 }

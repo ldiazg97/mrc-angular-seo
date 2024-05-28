@@ -1,18 +1,25 @@
 <main>
-  <div class="menulat">
-    <button pButton type="button" class="mybutton" icon="pi pi-bars"></button>
-  </div>
-  <div class="seguimiento">
-    <app-seguimiento></app-seguimiento>
-  </div>
   <div class="usersection">
     <div class="user-area">
+      <div class="button-group">
+        <p-splitButton label="Seguimiento" [model]="seguimientoItems" icon="pi pi-check-circle">
+          <span class="button-label" (click)="seguimientoClick()">Seguimiento</span>
+        </p-splitButton>
+        <p-splitButton label="Configurar" [model]="configurarItems" icon="pi pi-cog">
+          <span class="button-label" (click)="configurarClick()">Configurar</span>
+        </p-splitButton>
+        <p-splitButton label="Auditoría" [model]="auditoriaItems" icon="pi pi-lock">
+          <span class="button-label" (click)="auditoriaClick()">Auditoría</span>
+        </p-splitButton>
+      </div>
       <div class="notification-wrapper">
         <i class="pi pi-bell notification-icon"></i>
         <span class="badge">2</span>
       </div>
-      <button pButton type="button" class="menu-button" icon="pi pi-user" (click)="toggleMenu()"></button>
-      <div class="dropdown-menu" [style.display]="menuVisible ? 'block' : 'none'">
+      <button type="button" class="menu-button" (click)="toggleMenu()">
+        <i class="pi pi-user"></i>
+      </button>
+      <div class="dropdown-menu" [ngClass]="{'show': menuVisible}">
         <ul>
           <li (click)="login()">Perfil <i class="pi pi-user"></i></li>
           <li (click)="logout()">Salir <i class="pi pi-sign-out"></i></li>
