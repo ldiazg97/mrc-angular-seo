@@ -38,11 +38,11 @@ export class HeaderComponent implements OnInit{
       this.configurarItems = [
         { label: 'Sentencias', icon: 'pi pi-book' },
         { label: 'Ayuda', icon: 'pi pi-question-circle' },
-        { label: 'Terminos', icon: 'pi pi-question-circle' },
+        { label: 'Terminos', icon: 'pi pi-file-edit' },
         { label: 'Equipo de Seguimiento', icon: 'pi pi-eye' },
-        { label: 'Notificaciones', icon: 'pi pi-file' },
+        { label: 'Notificaciones', icon: 'pi pi-bell' },
         { label: 'Bloques', icon: 'pi pi-clone' },
-        { label: 'Rango de Tiempo', icon: 'pi pi-clock' },
+        { label: 'Rango de Tiempo', icon: 'pi pi-hourglass' },
         { label: 'Paquetes', icon: 'pi pi-objects-column' },
         { label: 'Permisos Especiales', icon: 'pi pi-lock' }
       ];

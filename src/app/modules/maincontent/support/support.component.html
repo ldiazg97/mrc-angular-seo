@@ -1,46 +1,250 @@
-<table class="tg">
-  <thead>
-    <tr>
-      <th class="tg-qk6s">algo</th>
-      <th class="tg-qk6s">otra cosakjasndk</th>
-      <th class="tg-qk6s">aksjndkasjndk</th>
-      <th class="tg-qk6s">.,.a,smdlak,nmaskdjnk</th>
-      <th class="tg-qk6s">,ansdkajsk</th>
-      <th class="tg-qk6s">,ansjkdajnsdka</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="tg-wc6l">1</td>
-      <td class="tg-wc6l">kskakskdasdasdsa<br>dasd<br>as<br>da<br>sd<br>asd<br></td>
-      <td class="tg-wc6l"></td>
-      <td class="tg-wc6l"></td>
-      <td class="tg-wc6l"></td>
-      <td class="tg-wc6l"></td>
-    </tr>
-    <tr>
-      <td class="tg-wc6l">2</td>
-      <td class="tg-wc6l">asdasd<br>a<br>sd<br>asd<br>asd<br>a<br>sd<br>asd<br>dfgdsfhfdh<br>df</td>
-      <td class="tg-wc6l"></td>
-      <td class="tg-wc6l"></td>
-      <td class="tg-wc6l"></td>
-      <td class="tg-wc6l"></td>
-    </tr>
-    <tr>
-      <td class="tg-wc6l">3</td>
-      <td class="tg-wc6l">asdlkfnlaskd<br>asdfsadnfkasd<br><br>asdfkjasdkf<br>asdfnkasd</td>
-      <td class="tg-wc6l"></td>
-      <td class="tg-wc6l"></td>
-      <td class="tg-wc6l"></td>
-      <td class="tg-wc6l"></td>
-    </tr>
-    <tr>
-      <td class="tg-wc6l">4</td>
-      <td class="tg-wc6l">kasdnfkasdk<br>asmdnfasd<br><br><br>a sdfnkasdfkasjdk</td>
-      <td class="tg-wc6l"></td>
-      <td class="tg-wc6l"></td>
-      <td class="tg-wc6l"></td>
-      <td class="tg-wc6l"></td>
-    </tr>
-  </tbody>
-  </table>
+<div>
+  <p-breadcrumb [model]="items"></p-breadcrumb>
+</div>
+
+<div class="card flex flex-wrap gap-3 justify-content-end" style="margin-top: 10px; margin-bottom: 10px;">
+
+  <button class="custom-button">
+      <mat-icon style="margin-right:5px;" fontIcon="add" ></mat-icon>NUEVO ACOMPAÑAMIENTO
+  </button>
+  
+</div>
+
+<div style="margin-bottom: 15px;">
+  <mat-toolbar class="custom-toolbar">
+      <mat-icon fontIcon="format_align_left" class="icon-left-margin"></mat-icon>
+      <span>ACOMPAÑAMIENTOS EN VALIDACIÓN</span>
+      <span style="flex: 1;"></span> <!-- Espaciador flexible -->
+      <button class="custom-button-toggle round-button" (click)="toggleTableVisibility()">
+          <mat-icon style="margin-right:5px; vertical-align: middle;" fontIcon="visibility"></mat-icon>
+      </button>
+  </mat-toolbar>
+
+  <div class="linea-separadora"></div> <!-- Divisor -->
+
+  <p-table 
+      [value]="support" 
+      styleClass="p-datatable-striped "
+      [scrollable]="true" 
+      scrollHeight="400px"
+      [tableStyle]="{'min-width': '50rem'}">
+      <ng-template pTemplate="header" >
+          <tr>
+              <th>#</th>
+              <th>Entidad</th>
+              <th>Correo</th>
+              <th>Modalidad</th>
+              <th>Lugar de Realizacion</th>
+              <th>Fecha de Solicitud</th>
+              <th>Fecha de Realizacion</th>
+              <th>Cantidad de Personas</th>
+              <th>Precio</th>
+              <th>Acciónes</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-sitioWeb >
+          <tr *ngIf="tableVisible===true">
+              <!-- <td>{{support.numero}}</td>
+              <td>{{support.correo}}</td>
+              <td>{{support.modalidad}}</td>
+              <td>{{support.lugar}}</td>
+              <td>{{support.fechaSol}}</td>
+              <td>{{support.fechaReal}}</td>
+              <td>{{support.cantPer}}</td>
+              <td>{{support.precio}}</td>
+              <td></td> -->
+          </tr>
+      </ng-template>
+  </p-table>
+</div>
+
+<div style="margin-top: 15px;">
+  <mat-toolbar class="custom-toolbar">
+      <mat-icon fontIcon="format_align_left" class="icon-left-margin"></mat-icon>
+      <span>ACOMPAÑAMIENTOS EN NEGOCIACIÓN</span>
+      <span style="flex: 1;"></span> <!-- Espaciador flexible -->
+      <button class="custom-button-toggle round-button" (click)="toggleTableVisibility1()">
+          <mat-icon style="margin-right:5px; vertical-align: middle;" fontIcon="visibility"></mat-icon>
+      </button>
+  </mat-toolbar>
+
+  <div class="linea-separadora"></div> <!-- Divisor -->
+
+  <p-table 
+      [value]="support" 
+      styleClass="p-datatable-striped"
+      [scrollable]="true" 
+      scrollHeight="400px" 
+      [tableStyle]="{'min-width': '50rem'}">
+      <ng-template pTemplate="header">
+          <tr>
+            <th>#</th>
+            <th>Entidad</th>
+            <th>Correo</th>
+            <th>Modalidad</th>
+            <th>Lugar de Realizacion</th>
+            <th>Fecha de Solicitud</th>
+            <th>Fecha de Realizacion</th>
+            <th>Cantidad de Personas</th>
+            <th>Precio</th>
+            <th>Acciónes</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-sitioWeb >
+          <tr *ngIf="tableVisible1===true">
+            <!-- <td>{{support.numero}}</td>
+            <td>{{support.correo}}</td>
+            <td>{{support.modalidad}}</td>
+            <td>{{support.lugar}}</td>
+            <td>{{support.fechaSol}}</td>
+            <td>{{support.fechaReal}}</td>
+            <td>{{support.cantPer}}</td>
+            <td>{{support.precio}}</td>
+            <td></td> -->
+          </tr>
+      </ng-template>
+  </p-table>
+</div>
+
+<div style="margin-bottom: 15px;">
+    <mat-toolbar class="custom-toolbar">
+        <mat-icon fontIcon="format_align_left" class="icon-left-margin"></mat-icon>
+        <span>ACOMPAÑAMIENTOS APROBADOS</span>
+        <span style="flex: 1;"></span> <!-- Espaciador flexible -->
+        <button class="custom-button-toggle round-button" (click)="toggleTableVisibility()">
+            <mat-icon style="margin-right:5px; vertical-align: middle;" fontIcon="visibility"></mat-icon>
+        </button>
+    </mat-toolbar>
+  
+    <div class="linea-separadora"></div> <!-- Divisor -->
+  
+    <p-table 
+        [value]="support" 
+        styleClass="p-datatable-striped "
+        [scrollable]="true" 
+        scrollHeight="400px"
+        [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header" >
+            <tr>
+                <th>#</th>
+                <th>Entidad</th>
+                <th>Correo</th>
+                <th>Modalidad</th>
+                <th>Lugar de Realizacion</th>
+                <th>Fecha de Solicitud</th>
+                <th>Fecha de Realizacion</th>
+                <th>Cantidad de Personas</th>
+                <th>Precio</th>
+                <th>Acciónes</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-sitioWeb >
+            <tr *ngIf="tableVisible===true">
+                <!-- <td>{{support.numero}}</td>
+                <td>{{support.correo}}</td>
+                <td>{{support.modalidad}}</td>
+                <td>{{support.lugar}}</td>
+                <td>{{support.fechaSol}}</td>
+                <td>{{support.fechaReal}}</td>
+                <td>{{support.cantPer}}</td>
+                <td>{{support.precio}}</td>
+                <td></td> -->
+            </tr>
+        </ng-template>
+    </p-table>
+  </div>
+  <div style="margin-bottom: 15px;">
+    <mat-toolbar class="custom-toolbar">
+        <mat-icon fontIcon="format_align_left" class="icon-left-margin"></mat-icon>
+        <span>ACOMPAÑAMIENTOS CERRADOS</span>
+        <span style="flex: 1;"></span> <!-- Espaciador flexible -->
+        <button class="custom-button-toggle round-button" (click)="toggleTableVisibility()">
+            <mat-icon style="margin-right:5px; vertical-align: middle;" fontIcon="visibility"></mat-icon>
+        </button>
+    </mat-toolbar>
+  
+    <div class="linea-separadora"></div> <!-- Divisor -->
+  
+    <p-table 
+        [value]="support" 
+        styleClass="p-datatable-striped "
+        [scrollable]="true" 
+        scrollHeight="400px"
+        [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header" >
+            <tr>
+                <th>#</th>
+                <th>Entidad</th>
+                <th>Correo</th>
+                <th>Modalidad</th>
+                <th>Lugar de Realizacion</th>
+                <th>Fecha de Solicitud</th>
+                <th>Fecha de Realizacion</th>
+                <th>Cantidad de Personas</th>
+                <th>Precio</th>
+                <th>Acciónes</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-sitioWeb >
+            <tr *ngIf="tableVisible===true">
+                <!-- <td>{{support.numero}}</td>
+                <td>{{support.correo}}</td>
+                <td>{{support.modalidad}}</td>
+                <td>{{support.lugar}}</td>
+                <td>{{support.fechaSol}}</td>
+                <td>{{support.fechaReal}}</td>
+                <td>{{support.cantPer}}</td>
+                <td>{{support.precio}}</td>
+                <td></td> -->
+            </tr>
+        </ng-template>
+    </p-table>
+  </div>
+  <div style="margin-bottom: 15px;">
+    <mat-toolbar class="custom-toolbar">
+        <mat-icon fontIcon="format_align_left" class="icon-left-margin"></mat-icon>
+        <span>ACOMPAÑAMIENTOS CANCELADOS</span>
+        <span style="flex: 1;"></span> <!-- Espaciador flexible -->
+        <button class="custom-button-toggle round-button" (click)="toggleTableVisibility()">
+            <mat-icon style="margin-right:5px; vertical-align: middle;" fontIcon="visibility"></mat-icon>
+        </button>
+    </mat-toolbar>
+  
+    <div class="linea-separadora"></div> <!-- Divisor -->
+  
+    <p-table 
+        [value]="support" 
+        styleClass="p-datatable-striped "
+        [scrollable]="true" 
+        scrollHeight="400px"
+        [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header" >
+            <tr>
+                <th>#</th>
+                <th>Entidad</th>
+                <th>Correo</th>
+                <th>Modalidad</th>
+                <th>Lugar de Realizacion</th>
+                <th>Fecha de Solicitud</th>
+                <th>Fecha de Realizacion</th>
+                <th>Cantidad de Personas</th>
+                <th>Precio</th>
+                <th>Acciónes</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-sitioWeb >
+            <tr *ngIf="tableVisible===true">
+                <!-- <td>{{support.numero}}</td>
+                <td>{{support.correo}}</td>
+                <td>{{support.modalidad}}</td>
+                <td>{{support.lugar}}</td>
+                <td>{{support.fechaSol}}</td>
+                <td>{{support.fechaReal}}</td>
+                <td>{{support.cantPer}}</td>
+                <td>{{support.precio}}</td>
+                <td></td> -->
+            </tr>
+        </ng-template>
+    </p-table>
+  </div>
+      

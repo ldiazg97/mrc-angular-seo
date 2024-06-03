@@ -1,14 +1,127 @@
-html{
-  display:block;
-  margin: 0;
-  padding: 0;
-  width: 100%;
+.custom-toolbar {
+  background-color: white; /* Cambia esto al color que desees */
+  color: rgb(199, 199, 199);
+  border-top: 1px solid gray;
 }
 
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-qk6s{background-color:#cbcefb;color:#000000;font-weight:bold;text-align:center;vertical-align:top}
-.tg .tg-wc6l{background-color:#ffffff;color:#656565;text-align:left;vertical-align:top}
+.linea-separadora {
+  height: 1px;
+  width: 90%; /* Ancho del 50% del contenedor */
+  background-color: rgba(128, 128, 128, 0.5); /* Color gris transparente */
+  margin: 10px auto; /* Margen superior e inferior de 10px y centrado horizontal */
+}
+
+.icon-left-margin {
+  margin-right: 8px; /* Ajusta el valor según el espacio deseado */
+}
+
+/* styles.css */
+.custom-button {
+background-color: #7cb526; /* Color verde */
+color: white;
+border: none;
+box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+text-align: center;
+border-radius: 5px;
+font-size: 1rem; /* Tamaño de la fuente */
+padding: 0.30rem 0.8rem; /* Aumenta el padding para mayor separación */
+margin-right: 5px;
+cursor: pointer;
+display: flex; /* Utilizar flexbox */
+align-items: center; /* Centrar verticalmente */
+}
+
+.custom-button:hover {
+background-color: white; /* Fondo blanco en hover */
+color: #7cb526; /* Texto verde en hover */
+}
+.icon-flipped {
+transform: scaleX(-1);
+margin-right: 5px;
+}
+
+.custom-button1 {
+background-color: #73879c; /* Color verde */
+color: white;
+border-radius: 5px;
+border: none;
+box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+text-align: center;
+font-size: 1rem; /* Tamaño de la fuente */
+padding: 0.30rem 0.8rem; /* Aumenta el padding para mayor separación */
+margin-right: 10px;
+cursor: pointer;
+display: flex; /* Utilizar flexbox */
+align-items: center; /* Centrar verticalmente */
+}
+
+.custom-button1:hover {
+background-color: white; /* Fondo blanco en hover */
+color: #73879c; /* Texto verde en hover */
+}
+
+.custom-button2 {
+background-color: #2c90cf; /* Color verde */
+color: white;
+border: none;
+box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+text-align: center;
+font-size: 1rem; /* Tamaño de la fuente */
+padding: 0.30rem 0.8rem; /* Aumenta el padding para mayor separación */
+border-radius: 5px;
+margin-right: 5px;
+cursor: pointer;
+display: flex; /* Utilizar flexbox */
+align-items: center; /* Centrar verticalmente */
+}
+
+.custom-button2:hover {
+background-color: white; /* Fondo blanco en hover */
+color: #2c90cf; /* Texto verde en hover */
+}
+
+
+
+.custom-button-toggle {
+background-color: gray; /* Fondo del botón */
+border: 1px solid gray; /* Borde del botón */
+background-color: white; /* Fondo blanco en hover */
+color: gray; /* Texto verde en hover */
+cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+display: flex;
+align-items: center;
+}
+
+.custom-button-toggle mat-icon {
+margin-right: 5px; /* Espacio entre el icono y el texto */
+}
+
+
+
+.round-button {
+width: 30px; /* Ancho fijo para el botón */
+height: 30px; /* Altura fija para el botón */
+border-radius: 50%; /* Hacer el botón redondo */
+border: none; /* Sin borde */
+position: relative; /* Posición relativa para permitir posición absoluta del icono */
+cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+}
+
+.round-button mat-icon {
+position: absolute; /* Posición absoluta para el icono */
+top: 50%; /* Mover el icono al 50% de la altura del botón */
+left: 50%; /* Mover el icono al 50% del ancho del botón */
+transform: translate(-50%, -50%); /* Centrar el icono exactamente en el centro */
+font-size: 20px; /* Tamaño del icono */
+color: rgb(199, 199, 199);; /* Color del icono */
+}
+
+
+
+
+
+
+
