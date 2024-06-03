@@ -6,6 +6,11 @@
   width: var(--nav-width);
 }
 
+img{
+  width: 200px;
+  height: auto;
+  cursor: pointer;
+}
 #menu {
   display: flex;
   flex-direction: column;
