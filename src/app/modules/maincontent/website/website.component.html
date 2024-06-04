@@ -1,99 +1,96 @@
-<!-- website.component.html -->
 <div>
-    <p-breadcrumb [model]="items"></p-breadcrumb>
-  </div>
-  
-  <div class="card flex flex-wrap gap-3 justify-content-end" style="margin-top: 10px; margin-bottom: 10px;">
-    <button class="custom-button2" [routerLink]="'/support'">
-      <mat-icon style="margin-right:8px;" fontIcon="groups"></mat-icon>ACOMPAÑAMIENTO PROFESIONAL
+  <p-breadcrumb [model]="items"></p-breadcrumb>
+</div>
+
+<div class="card flex flex-wrap gap-3 justify-content-end" style="margin-top: 10px; margin-bottom: 10px;">
+  <button class="custom-button2" [routerLink]="'/support'">
+    <mat-icon style="margin-right:8px;" fontIcon="groups"></mat-icon>ACOMPAÑAMIENTO PROFESIONAL
+  </button>
+  <button class="custom-button">
+    <mat-icon style="margin-right:5px;" fontIcon="add"></mat-icon>NUEVA SUSCRIPCIÓN
+  </button>
+  <button class="custom-button1" [routerLink]="'/sitios-compartidos'">
+    <mat-icon fontIcon="reply" class="icon-flipped"></mat-icon> SITIOS WEBS COMPARTIDOS
+  </button>
+</div>
+
+<div style="margin-bottom: 15px;">
+  <mat-toolbar class="custom-toolbar">
+    <mat-icon fontIcon="format_align_left" class="icon-left-margin"></mat-icon>
+    <span>SITIOS WEB ORGANIZACIÓN 1</span>
+    <span style="flex: 1;"></span> <!-- Espaciador flexible -->
+    <button class="custom-button-toggle round-button" (click)="toggleTableVisibility()">
+      <mat-icon style="margin-right:5px; vertical-align: middle;" fontIcon="expand_more"></mat-icon>
     </button>
-    <button class="custom-button">
-      <mat-icon style="margin-right:5px;" fontIcon="add"></mat-icon>NUEVA SUSCRIPCIÓN
+  </mat-toolbar>
+
+  <div class="linea-separadora"></div> <!-- Divisor -->
+
+  <p-table 
+    [value]="sitiosWeb" 
+    styleClass="p-datatable-striped"
+    [scrollable]="true" 
+    scrollHeight="400px"
+    [tableStyle]="{'min-width': '50rem'}">
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="center-align">#</th>
+        <th class="center-align">Sitios Web</th>
+        <th class="center-align">Estado de la suscripción</th>
+        <th class="center-align">Paquete</th>
+        <th class="center-align">Acción</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-sitioWeb>
+      <tr *ngIf="tableVisible === true">
+        <td class="center-align">{{sitioWeb.numeroSitioWeb}}</td>
+        <td class="center-align"><a [routerLink]="['/evaluacion-seo']" (click)="navigateToEvaluation(sitioWeb.sitioWeb)">{{sitioWeb.sitioWeb}}</a></td>
+        <td class="center-align">{{sitioWeb.estadoSuscripcion}}</td>
+        <td class="center-align">{{sitioWeb.paquete}}</td>
+        <td class="center-align"></td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<div style="margin-top: 15px;">
+  <mat-toolbar class="custom-toolbar">
+    <mat-icon fontIcon="format_align_left" class="icon-left-margin"></mat-icon>
+    <span>SITIOS WEB ORGANIZACIÓN 2</span>
+    <span style="flex: 1;"></span> <!-- Espaciador flexible -->
+    <button class="custom-button-toggle round-button" (click)="toggleTableVisibility1()">
+      <mat-icon style="margin-right:5px; vertical-align: middle;" fontIcon="expand_more"></mat-icon>
     </button>
-    <button class="custom-button1" [routerLink]="'/sitios-compartidos'">
-      <mat-icon fontIcon="reply" class="icon-flipped"></mat-icon> SITIOS WEBS COMPARTIDOS
-    </button>
-  </div>
-  
-  <div style="margin-bottom: 15px;">
-    <mat-toolbar class="custom-toolbar">
-      <mat-icon fontIcon="format_align_left" class="icon-left-margin"></mat-icon>
-      <span>SITIOS WEB ORGANIZACIÓN 1</span>
-      <span style="flex: 1;"></span>
-      <button class="custom-button-toggle round-button" (click)="toggleTableVisibility()">
-        <mat-icon style="margin-right:5px; vertical-align: middle;" fontIcon="expand_more"></mat-icon>
-      </button>
-    </mat-toolbar>
-  
-    <div class="linea-separadora"></div>
-  
-    <p-table 
-      [value]="sitiosWeb" 
-      styleClass="p-datatable-striped"
-      [scrollable]="true" 
-      scrollHeight="400px"
-      [tableStyle]="{'min-width': '50rem'}">
-      <ng-template pTemplate="header">
-        <tr>
-          <th class="center-align">#</th>
-          <th class="center-align">Sitios Web</th>
-          <th class="center-align">Estado de la suscripción</th>
-          <th class="center-align">Paquete</th>
-          <th class="center-align">Acción</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-sitioWeb>
-        <tr *ngIf="tableVisible === true">
-          <td class="center-align">{{sitioWeb.numeroSitioWeb}}</td>
-          <td class="center-align">
-            <a href="#" (click)="navigateToEvaluation($event, sitioWeb.sitioWeb)">{{sitioWeb.sitioWeb}}</a>
-          </td>
-          <td class="center-align">{{sitioWeb.estadoSuscripcion}}</td>
-          <td class="center-align">{{sitioWeb.paquete}}</td>
-          <td class="center-align"></td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
-  
-  <div style="margin-top: 15px;">
-    <mat-toolbar class="custom-toolbar">
-      <mat-icon fontIcon="format_align_left" class="icon-left-margin"></mat-icon>
-      <span>SITIOS WEB ORGANIZACIÓN 2</span>
-      <span style="flex: 1;"></span>
-      <button class="custom-button-toggle round-button" (click)="toggleTableVisibility1()">
-        <mat-icon style="margin-right:5px; vertical-align: middle;" fontIcon="expand_more"></mat-icon>
-      </button>
-    </mat-toolbar>
-  
-    <div class="linea-separadora"></div>
-  
-    <p-table 
-      [value]="sitiosWeb" 
-      styleClass="p-datatable-striped"
-      [scrollable]="true" 
-      scrollHeight="400px" 
-      [tableStyle]="{'min-width': '50rem'}">
-      <ng-template pTemplate="header">
-        <tr>
-          <th class="center-align">#</th>
-          <th class="center-align">Sitios Web</th>
-          <th class="center-align">Estado de la suscripción</th>
-          <th class="center-align">Paquete</th>
-          <th class="center-align">Acción</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-sitioWeb>
-        <tr *ngIf="tableVisible1 === true">
-          <td class="center-align">{{sitioWeb.numeroSitioWeb}}</td>
-          <td class="center-align">
-            <a href="#" (click)="navigateToEvaluation($event, sitioWeb.sitioWeb)">{{sitioWeb.sitioWeb}}</a>
-          </td>
-          <td class="center-align">{{sitioWeb.estadoSuscripcion}}</td>
-          <td class="center-align">{{sitioWeb.paquete}}</td>
-          <td class="center-align"></td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
-  
+  </mat-toolbar>
+
+  <div class="linea-separadora"></div> <!-- Divisor -->
+
+  <p-table 
+    [value]="sitiosWeb" 
+    styleClass="p-datatable-striped"
+    [scrollable]="true" 
+    scrollHeight="400px" 
+    [tableStyle]="{'min-width': '50rem'}">
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="center-align">#</th>
+        <th class="center-align">Sitios Web</th>
+        <th class="center-align">Estado de la suscripción</th>
+        <th class="center-align">Paquete</th>
+        <th class="center-align">Acción</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-sitioWeb>
+      <tr *ngIf="tableVisible1 === true">
+        <td class="center-align">{{sitioWeb.numeroSitioWeb}}</td>
+        <!-- Modifica tu código de tabla aquí -->
+        <td class="center-align">
+          <a [routerLink]="['/evaluacion-seo']" (click)="navigateToEvaluation(sitioWeb.sitioWeb)">{{sitioWeb.sitioWeb}}</a>
+        </td>
+        <td class="center-align">{{sitioWeb.estadoSuscripcion}}</td>
+        <td class="center-align">{{sitioWeb.paquete}}</td>
+        <td class="center-align"></td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
