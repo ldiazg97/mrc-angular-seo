@@ -66,9 +66,9 @@ export class WebsiteComponent{
 }
 
 // website.component.ts
-navigateToEvaluation(event: Event, sitioWeb: string) {
-  event.preventDefault();
+navigateToEvaluation(sitioWeb: string) {
   this.menuService.setShowEvaluacionSEO(true);
+  this.menuService.setShowAnalisisTelus(true);
   this.router.navigate(['/evaluacion-seo']);
 }
 
