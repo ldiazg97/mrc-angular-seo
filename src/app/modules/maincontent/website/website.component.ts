@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { ActivatedRoute,Router, NavigationEnd, RouterModule, ActivatedRouteSnapshot, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { MenuService } from '../../../Services/menu.service';
 @Component({
   selector: 'app-website',
   standalone: true,
@@ -38,37 +39,39 @@ export class WebsiteComponent{
     console.log('Table visibility toggled:', this.tableVisible1); 
   }
   sitiosWeb = [
-    { numeroSitioWeb: 1, sitioWeb: 'www.ejemplo.com', estadoSuscripcion: 'Activa', paquete: 'Premium' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.otroejemplo.com', estadoSuscripcion: 'Inactiva', paquete: 'Básico' },
-    // Puedes agregar más sitios web aquí
+    { numeroSitioWeb: 1, sitioWeb: 'www.ejemplo1.com', estadoSuscripcion: 'Activo', paquete: 'Premium' },
+    { numeroSitioWeb: 2, sitioWeb: 'www.ejemplo2.com', estadoSuscripcion: 'Inactivo', paquete: 'Básico' },
+    { numeroSitioWeb: 3, sitioWeb: 'www.ejemplo3.com', estadoSuscripcion: 'Activo', paquete: 'Estándar' },
+    { numeroSitioWeb: 4, sitioWeb: 'www.ejemplo4.com', estadoSuscripcion: 'Inactivo', paquete: 'Premium' },
+    { numeroSitioWeb: 5, sitioWeb: 'www.ejemplo5.com', estadoSuscripcion: 'Activo', paquete: 'Básico' },
+    { numeroSitioWeb: 6, sitioWeb: 'www.ejemplo6.com', estadoSuscripcion: 'Inactivo', paquete: 'Estándar' },
+    { numeroSitioWeb: 7, sitioWeb: 'www.ejemplo7.com', estadoSuscripcion: 'Activo', paquete: 'Premium' },
+    { numeroSitioWeb: 8, sitioWeb: 'www.ejemplo8.com', estadoSuscripcion: 'Inactivo', paquete: 'Básico' },
+    { numeroSitioWeb: 9, sitioWeb: 'www.ejemplo9.com', estadoSuscripcion: 'Activo', paquete: 'Estándar' },
+    { numeroSitioWeb: 10, sitioWeb: 'www.ejemplo10.com', estadoSuscripcion: 'Inactivo', paquete: 'Premium' },
+    { numeroSitioWeb: 11, sitioWeb: 'www.ejemplo11.com', estadoSuscripcion: 'Activo', paquete: 'Básico' },
+    { numeroSitioWeb: 12, sitioWeb: 'www.ejemplo12.com', estadoSuscripcion: 'Inactivo', paquete: 'Estándar' }
   ];
   items: any[] = [];
   home: any = { icon: 'pi pi-home', routerLink: '/' };
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private menuService:MenuService) {
     console.log('Constructor called');
     this.router.events.pipe(
         filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
         this.updateBreadcrumb();
     });
+
 }
+
+// website.component.ts
+navigateToEvaluation(event: Event, sitioWeb: string) {
+  event.preventDefault();
+  this.menuService.setShowEvaluacionSEO(true);
+  this.router.navigate(['/evaluacion-seo']);
+}
+
 
 updateBreadcrumb() {
     const root = this.router.routerState.snapshot.root;
