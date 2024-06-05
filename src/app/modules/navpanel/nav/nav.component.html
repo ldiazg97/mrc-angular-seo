@@ -1,4 +1,3 @@
-<!-- nav.component.html -->
 <a href="https://seowebmas.redcuba.cu/">
   <img src="../../../../assets/Logos/SEOWEBMAS.svg" alt="Logo de SEO" style="margin-left:15px;margin-right:20px; margin-top: 25px; margin-bottom: 30px">
 </a>
@@ -16,13 +15,20 @@
       </div>
     </a>
     <a *ngIf="showEvaluacionSEO" [routerLink]="'/evaluacion-seo'" routerLinkActive="active-link" class="w-full px-2 inline-flex items-center border-b border-slate-700 py-3 hover:bg-white/5 transition ease-linear duration-150">
-      <i class="pi pi-search mr-4"></i>
+      <i class="pi pi-hammer mr-4"></i>
       <div class="flex flex-col">
         <span class="text-lg font-bold leading-8 text-white">Evaluación SEO</span>
       </div>
     </a>
+    <a *ngIf="showAnalisisTelus" [routerLink]="'/analisis-telus'" routerLinkActive="active-link" class="w-full px-2 inline-flex items-center border-b border-slate-700 py-3 hover:bg-white/5 transition ease-linear duration-150">
+      <i class="pi pi-chart-bar mr-4"></i>
+      <div class="flex flex-col">
+        <span class="text-lg font-bold leading-8 text-white">Análisis Telus</span>
+      </div>
+    </a>
   </div>
 
+  <!-- Barra inferior con botón -->
   <div class="bottom-bar">
     <button class="round-button">
       <mat-icon>help_outline</mat-icon>

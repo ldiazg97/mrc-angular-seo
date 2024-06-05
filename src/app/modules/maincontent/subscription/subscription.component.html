@@ -24,39 +24,80 @@
     <div class="linea-separadora"></div> <!-- Divisor -->
 
     <p-table 
+        #dt2
         [value]="subscription" 
         styleClass="p-datatable-striped "
         [scrollable]="true" 
         scrollHeight="400px"
-        [tableStyle]="{'min-width': '50rem'}">
+        [paginator]="true"
+        [rows]="5"
+        [first]="first"
+        [showCurrentPageReport]="true"
+        
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+        (onPage)="pageChange($event)"
+        [rowsPerPageOptions]="[5, 10, 25, 50]"
+        [tableStyle]="{'min-width': '50rem'}"
+        [globalFilterFields]="['user', 'organismo', 'correo', 'status']">
+        
+
+ 
+        <ng-template pTemplate="caption">
+            <div class="flex">
+                <p-iconField iconPosition="left" class="ml-auto">
+                    <p-inputIcon>
+                        <i class="pi pi-search"></i>
+                    </p-inputIcon>
+                    <input pInputText type="text" (input)="onInputChange($event)" placeholder="Search keyword" />
+
+                </p-iconField>
+            </div>
+        </ng-template>
         <ng-template pTemplate="header" >
             <tr>
-                <th>#</th>
-                <th>Nombre del Usuario</th>
-                <th>Organismo</th>
-                <th>Correo</th>
-                <th>Sitios Web</th>
-                <th>Servicos</th>
-                <th>Cantidad de Sitios Web</th>
-                <th>Paquete</th>
-                <th>Fecha de Solicitud</th>
-                <th>Tiempo Solicitado</th>
-                <th>Acciones</th>
+                <th pSortableColumn="#" style="width:20%">
+                    # <p-sortIcon field="#" />
+                </th>
+                <th pSortableColumn="user" style="width:20%">
+                    Nombre del Usuario <p-sortIcon field="user" />
+                </th>
+                <th pSortableColumn="organismo" style="width:20%">
+                    Organismo <p-sortIcon field="organismo" />
+                </th>
+                <th pSortableColumn="correo" style="width:20%">
+                    Correo <p-sortIcon field="correo" />
+                </th>
+                <th pSortableColumn="sitio" style="width:20%">
+                    Sitios Web <p-sortIcon field="sitio" />
+                </th>
+                <th pSortableColumn="cantidad" style="width:20%">
+                    Cantidad de Sitios Web <p-sortIcon field="cantidad" />
+                </th>
+                <th pSortableColumn="paquete" style="width:20%">
+                    Paquete <p-sortIcon field="paquete" />
+                </th>
+                <th pSortableColumn="fecha" style="width:20%">
+                    Fecha de Solicitud <p-sortIcon field="fecha" />
+                </th>
+                <th pSortableColumn="tiempo" style="width:20%">
+                    Tiempo Solicitado <p-sortIcon field="tiempo" />
+                </th>
+                <th>
+                </th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-sitioWeb >
+        <ng-template pTemplate="body" let-subscription >
             <tr *ngIf="tableVisible===true">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td class="center-align">{{subscription.numero}}</td>
+                <td class="center-align">{{subscription.nombre_del_usuario}}</td>
+                <td class="center-align">{{subscription.organismo}}</td>
+                <td class="center-align">{{subscription.correo}}</td>
+                <td class="center-align">{{subscription.sitios_web}}</td>
+                <td class="center-align">{{subscription.cantidad_sitios_web}}</td>
+                <td class="center-align">{{subscription.paquete}}</td>
+                <td class="center-align">{{subscription.fecha_de_solicitud}}</td>
+                <td class="center-align">{{subscription.tiempo_solicitado}}</td>
+                <td class="center-align"></td>
             </tr>
         </ng-template>
     </p-table>
@@ -80,7 +121,14 @@
         styleClass="p-datatable-striped "
         [scrollable]="true" 
         scrollHeight="400px"
-        [tableStyle]="{'min-width': '50rem'}">
+        [tableStyle]="{'min-width': '50rem'}"
+        [paginator]="true"
+        [rows]="5"
+        [first]="first1"
+        [showCurrentPageReport]="true"
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+        (onPage)="pageChange1($event)"
+        [rowsPerPageOptions]="[5, 10, 25, 50]">
         <ng-template pTemplate="header" >
             <tr>
                 <th>#</th>
@@ -88,7 +136,6 @@
                 <th>Organismo</th>
                 <th>Correo</th>
                 <th>Sitios Web</th>
-                <th>Servicos</th>
                 <th>Cantidad de Sitios Web</th>
                 <th>Paquete</th>
                 <th>Fecha de Solicitud</th>
@@ -96,19 +143,18 @@
                 <th>Acciones</th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-sitioWeb >
+        <ng-template pTemplate="body" let-subscription >
             <tr *ngIf="tableVisible===true">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td class="center-align">{{subscription.numero}}</td>
+                <td class="center-align">{{subscription.nombre_del_usuario}}</td>
+                <td class="center-align">{{subscription.organismo}}</td>
+                <td class="center-align">{{subscription.correo}}</td>
+                <td class="center-align">{{subscription.sitios_web}}</td>
+                <td class="center-align">{{subscription.cantidad_sitios_web}}</td>
+                <td class="center-align">{{subscription.paquete}}</td>
+                <td class="center-align">{{subscription.fecha_de_solicitud}}</td>
+                <td class="center-align">{{subscription.tiempo_solicitado}}</td>
+                <td class="center-align"></td>
             </tr>
         </ng-template>
     </p-table>
@@ -132,6 +178,14 @@
         styleClass="p-datatable-striped "
         [scrollable]="true" 
         scrollHeight="400px"
+        [paginator]="true"
+        [rows]="5"
+        [first]="first2"
+        [showCurrentPageReport]="true"
+        
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+        (onPage)="pageChange2($event)"
+        [rowsPerPageOptions]="[5, 10, 25, 50]"
         [tableStyle]="{'min-width': '50rem'}">
         <ng-template pTemplate="header" >
             <tr>
@@ -140,7 +194,7 @@
                 <th>Organismo</th>
                 <th>Correo</th>
                 <th>Sitios Web</th>
-                <th>Servicos</th>
+
                 <th>Cantidad de Sitios Web</th>
                 <th>Paquete</th>
                 <th>Fecha de Solicitud</th>
@@ -148,19 +202,18 @@
                 <th>Acciones</th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-sitioWeb >
+        <ng-template pTemplate="body" let-subscription >
             <tr *ngIf="tableVisible===true">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td class="center-align">{{subscription.numero}}</td>
+                <td class="center-align">{{subscription.nombre_del_usuario}}</td>
+                <td class="center-align">{{subscription.organismo}}</td>
+                <td class="center-align">{{subscription.correo}}</td>
+                <td class="center-align">{{subscription.sitios_web}}</td>
+                <td class="center-align">{{subscription.cantidad_sitios_web}}</td>
+                <td class="center-align">{{subscription.paquete}}</td>
+                <td class="center-align">{{subscription.fecha_de_solicitud}}</td>
+                <td class="center-align">{{subscription.tiempo_solicitado}}</td>
+                <td class="center-align"></td>
             </tr>
         </ng-template>
     </p-table>
@@ -183,6 +236,14 @@
         [value]="subscription" 
         styleClass="p-datatable-striped "
         [scrollable]="true" 
+        [paginator]="true"
+        [rows]="5"
+        [first]="first3"
+        [showCurrentPageReport]="true"
+        
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+        (onPage)="pageChange3($event)"
+        [rowsPerPageOptions]="[5, 10, 25, 50]"
         scrollHeight="400px"
         [tableStyle]="{'min-width': '50rem'}">
         <ng-template pTemplate="header" >
@@ -192,28 +253,26 @@
                 <th>Organismo</th>
                 <th>Correo</th>
                 <th>Sitios Web</th>
-                <th>Servicos</th>
                 <th>Cantidad de Sitios Web</th>
                 <th>Paquete</th>
                 <th>Fecha de Solicitud</th>
                 <th>Tiempo Solicitado</th>
                 <th>Fecha de Comienzo</th>
-                <th>Acciones</th>
+                <th>Tiempo Restante</th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-sitioWeb >
+        <ng-template pTemplate="body" let-subscription >
             <tr *ngIf="tableVisible===true">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td class="center-align">{{subscription.numero}}</td>
+                <td class="center-align">{{subscription.nombre_del_usuario}}</td>
+                <td class="center-align">{{subscription.organismo}}</td>
+                <td class="center-align">{{subscription.correo}}</td>
+                <td class="center-align">{{subscription.sitios_web}}</td>
+                <td class="center-align">{{subscription.cantidad_sitios_web}}</td>
+                <td class="center-align">{{subscription.paquete}}</td>
+                <td class="center-align">{{subscription.fecha_de_solicitud}}</td>
+                <td class="center-align">{{subscription.fecha_de_comienzo}}</td>
+                <td class="center-align">{{subscription.tiempo_restante}}</td>
             </tr>
         </ng-template>
     </p-table>
@@ -236,6 +295,14 @@
         [value]="subscription" 
         styleClass="p-datatable-striped "
         [scrollable]="true" 
+        [paginator]="true"
+        [rows]="5"
+        [first]="first4"
+        [showCurrentPageReport]="true"
+        
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+        (onPage)="pageChange4($event)"
+        [rowsPerPageOptions]="[5, 10, 25, 50]"
         scrollHeight="400px"
         [tableStyle]="{'min-width': '50rem'}">
         <ng-template pTemplate="header" >
@@ -245,7 +312,6 @@
                 <th>Organismo</th>
                 <th>Correo</th>
                 <th>Sitios Web</th>
-                <th>Servicos</th>
                 <th>Cantidad de Sitios Web</th>
                 <th>Paquete</th>
                 <th>Fecha de Solicitud</th>
@@ -253,19 +319,18 @@
                 <th>Acciones</th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-sitioWeb >
+        <ng-template pTemplate="body" let-subscription >
             <tr *ngIf="tableVisible===true">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td class="center-align">{{subscription.numero}}</td>
+                <td class="center-align">{{subscription.nombre_del_usuario}}</td>
+                <td class="center-align">{{subscription.organismo}}</td>
+                <td class="center-align">{{subscription.correo}}</td>
+                <td class="center-align">{{subscription.sitios_web}}</td>
+                <td class="center-align">{{subscription.cantidad_sitios_web}}</td>
+                <td class="center-align">{{subscription.paquete}}</td>
+                <td class="center-align">{{subscription.fecha_de_solicitud}}</td>
+                <td class="center-align">{{subscription.tiempo_solicitado}}</td>
+                <td class="center-align"></td>
             </tr>
         </ng-template>
     </p-table>
@@ -289,7 +354,15 @@
         styleClass="p-datatable-striped "
         [scrollable]="true" 
         scrollHeight="400px"
-        [tableStyle]="{'min-width': '50rem'}">
+        [tableStyle]="{'min-width': '50rem'}"
+        [paginator]="true"
+        [rows]="5"
+        [first]="first5"
+        [showCurrentPageReport]="true"
+        
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+        (onPage)="pageChange5($event)"
+        [rowsPerPageOptions]="[5,10, 25, 50]">
         <ng-template pTemplate="header" >
             <tr>
                 <th>#</th>
@@ -297,7 +370,6 @@
                 <th>Organismo</th>
                 <th>Correo</th>
                 <th>Sitios Web</th>
-                <th>Servicos</th>
                 <th>Cantidad de Sitios Web</th>
                 <th>Paquete</th>
                 <th>Fecha de Solicitud</th>
@@ -305,19 +377,18 @@
                 <th>Acciones</th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-sitioWeb >
+        <ng-template pTemplate="body" let-subscription >
             <tr *ngIf="tableVisible===true">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td class="center-align">{{subscription.numero}}</td>
+                <td class="center-align">{{subscription.nombre_del_usuario}}</td>
+                <td class="center-align">{{subscription.organismo}}</td>
+                <td class="center-align">{{subscription.correo}}</td>
+                <td class="center-align">{{subscription.sitios_web}}</td>
+                <td class="center-align">{{subscription.cantidad_sitios_web}}</td>
+                <td class="center-align">{{subscription.paquete}}</td>
+                <td class="center-align">{{subscription.fecha_de_solicitud}}</td>
+                <td class="center-align">{{subscription.tiempo_solicitado}}</td>
+                <td class="center-align"></td>
             </tr>
         </ng-template>
     </p-table>
@@ -341,6 +412,13 @@
         styleClass="p-datatable-striped "
         [scrollable]="true" 
         scrollHeight="400px"
+        [paginator]="true"
+        [rows]="5"
+        [first]="first6"
+        [showCurrentPageReport]="true"
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+        (onPage)="pageChange6($event)"
+        [rowsPerPageOptions]="[5, 10, 25, 50]"
         [tableStyle]="{'min-width': '50rem'}">
         <ng-template pTemplate="header" >
             <tr>
@@ -349,7 +427,6 @@
                 <th>Organismo</th>
                 <th>Correo</th>
                 <th>Sitios Web</th>
-                <th>Servicos</th>
                 <th>Cantidad de Sitios Web</th>
                 <th>Paquete</th>
                 <th>Fecha de Solicitud</th>
@@ -358,19 +435,19 @@
                 <th>Acciones</th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-sitioWeb >
+        <ng-template pTemplate="body" let-subscription >
             <tr *ngIf="tableVisible===true">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td class="center-align">{{subscription.numero}}</td>
+                <td class="center-align">{{subscription.nombre_del_usuario}}</td>
+                <td class="center-align">{{subscription.organismo}}</td>
+                <td class="center-align">{{subscription.correo}}</td>
+                <td class="center-align">{{subscription.sitios_web}}</td>
+                <td class="center-align">{{subscription.cantidad_sitios_web}}</td>
+                <td class="center-align">{{subscription.paquete}}</td>
+                <td class="center-align">{{subscription.fecha_de_solicitud}}</td>
+                <td class="center-align">{{subscription.tiempo_solicitado}}</td>
+                <td class="center-align">{{subscription.fecha_de_deshabilitacion}}</td>
+                <td class="center-align"></td>
             </tr>
         </ng-template>
     </p-table>
