@@ -1,25 +1,30 @@
-@import "primeng/resources/themes/lara-light-blue/theme.css";
+// Importación de estilos de PrimeNG
+@import "primeng/resources/themes/lara-light-blue/theme.css"; // Asegúrate de que estás usando el tema correcto
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css"; // Si estás usando PrimeFlex
+
+// Importación de Tailwind CSS
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* styles.css */
-@import "primeflex/primeflex.css";
+
+// Importación de fuentes
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-
-:root{
+// Estilos globales
+:root {
   background-color: rgb(255, 255, 255);
-  --nav-width: 230px
+  --nav-width: 230px;
 }
-body{
+
+body {
   margin: 0;
   padding: 0;
   width: 100%;
-  
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+  height: 100%; 
+}

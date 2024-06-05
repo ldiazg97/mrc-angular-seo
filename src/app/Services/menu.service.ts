@@ -1,4 +1,3 @@
-// menu.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -6,10 +5,17 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class MenuService {
-  private _showEvaluacionSEO = new BehaviorSubject<boolean>(false);
-  showEvaluacionSEO$ = this._showEvaluacionSEO.asObservable();
+  private showEvaluacionSEO$ = new BehaviorSubject<boolean>(false);
+  showEvaluacionSEO = this.showEvaluacionSEO$.asObservable();
+
+  private showAnalisisTelus$ = new BehaviorSubject<boolean>(false);
+  showAnalisisTelus = this.showAnalisisTelus$.asObservable();
 
   setShowEvaluacionSEO(show: boolean) {
-    this._showEvaluacionSEO.next(show);
+    this.showEvaluacionSEO$.next(show);
+  }
+
+  setShowAnalisisTelus(show: boolean) {
+    this.showAnalisisTelus$.next(show);
   }
 }

@@ -39,19 +39,77 @@ export class WebsiteComponent{
     console.log('Table visibility toggled:', this.tableVisible1); 
   }
   sitiosWeb = [
-    { numeroSitioWeb: 1, sitioWeb: 'www.ejemplo1.com', estadoSuscripcion: 'Activo', paquete: 'Premium' },
-    { numeroSitioWeb: 2, sitioWeb: 'www.ejemplo2.com', estadoSuscripcion: 'Inactivo', paquete: 'Básico' },
-    { numeroSitioWeb: 3, sitioWeb: 'www.ejemplo3.com', estadoSuscripcion: 'Activo', paquete: 'Estándar' },
-    { numeroSitioWeb: 4, sitioWeb: 'www.ejemplo4.com', estadoSuscripcion: 'Inactivo', paquete: 'Premium' },
-    { numeroSitioWeb: 5, sitioWeb: 'www.ejemplo5.com', estadoSuscripcion: 'Activo', paquete: 'Básico' },
-    { numeroSitioWeb: 6, sitioWeb: 'www.ejemplo6.com', estadoSuscripcion: 'Inactivo', paquete: 'Estándar' },
-    { numeroSitioWeb: 7, sitioWeb: 'www.ejemplo7.com', estadoSuscripcion: 'Activo', paquete: 'Premium' },
-    { numeroSitioWeb: 8, sitioWeb: 'www.ejemplo8.com', estadoSuscripcion: 'Inactivo', paquete: 'Básico' },
-    { numeroSitioWeb: 9, sitioWeb: 'www.ejemplo9.com', estadoSuscripcion: 'Activo', paquete: 'Estándar' },
-    { numeroSitioWeb: 10, sitioWeb: 'www.ejemplo10.com', estadoSuscripcion: 'Inactivo', paquete: 'Premium' },
-    { numeroSitioWeb: 11, sitioWeb: 'www.ejemplo11.com', estadoSuscripcion: 'Activo', paquete: 'Básico' },
-    { numeroSitioWeb: 12, sitioWeb: 'www.ejemplo12.com', estadoSuscripcion: 'Inactivo', paquete: 'Estándar' }
-  ];
+    {
+      "numeroSitioWeb": 1,
+      "sitioWeb": "http://sitio1.com",
+      "estadoSuscripcion": "Aprobada",
+      "paquete": "Basico"
+    },
+    {
+      "numeroSitioWeb": 2,
+      "sitioWeb": "http://sitio2.com",
+      "estadoSuscripcion": "Rechazada",
+      "paquete": "Avanzado"
+    },
+    {
+      "numeroSitioWeb": 3,
+      "sitioWeb": "http://sitio3.com",
+      "estadoSuscripcion": "En proceso",
+      "paquete": "Temporal"
+    },
+    {
+      "numeroSitioWeb": 4,
+      "sitioWeb": "http://sitio4.com",
+      "estadoSuscripcion": "Cerrada",
+      "paquete": "Basico"
+    },
+    {
+      "numeroSitioWeb": 5,
+      "sitioWeb": "http://sitio5.com",
+      "estadoSuscripcion": "Deshabilitada",
+      "paquete": "Avanzado"
+    },
+    {
+      "numeroSitioWeb": 6,
+      "sitioWeb": "http://sitio6.com",
+      "estadoSuscripcion": "Aprobada",
+      "paquete": "Temporal"
+    },
+    {
+      "numeroSitioWeb": 7,
+      "sitioWeb": "http://sitio7.com",
+      "estadoSuscripcion": "Rechazada",
+      "paquete": "Basico"
+    },
+    {
+      "numeroSitioWeb": 8,
+      "sitioWeb": "http://sitio8.com",
+      "estadoSuscripcion": "En proceso",
+      "paquete": "Avanzado"
+    },
+    {"numeroSitioWeb": 9,
+      "sitioWeb": "http://sitio9.com",
+      "estadoSuscripcion": "Cerrada",
+      "paquete": "Temporal"
+    },
+    { "numeroSitioWeb": 10,
+      "sitioWeb": "http://sitio10.com",
+      "estadoSuscripcion": "Deshabilitada",
+      "paquete": "Basico"
+    },
+    {
+      "numeroSitioWeb": 11,
+      "sitioWeb": "http://sitio11.com",
+      "estadoSuscripcion": "Aprobada",
+      "paquete": "Avanzado"
+    },
+    {
+      "numeroSitioWeb": 12,
+      "sitioWeb": "http://sitio12.com",
+      "estadoSuscripcion": "Rechazada",
+      "paquete": "Temporal"
+    }
+  ]
   items: any[] = [];
   home: any = { icon: 'pi pi-home', routerLink: '/' };
 

@@ -1,8 +1,7 @@
-// nav.component.ts
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../../../Services/menu.service';
 import { routes } from '../../../app.routes';
-import { Router, NavigationEnd, RouterModule } from '@angular/router';
+import { Router, NavigationEnd, Event, RouterModule } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
@@ -15,21 +14,26 @@ import { MatIcon } from '@angular/material/icon';
   imports:[CommonModule,MatIcon,RouterModule]
 })
 export class NavComponent implements OnInit {
-  public menuItems = routes.filter(route => route.path !== '').filter(route => route.path !== 'sitios-compartidos').filter(route => route.path !== 'evaluacion-seo');
+  public menuItems = routes.filter(route => route.path !== '').filter(route => route.path !== 'sitios-compartidos').filter(route => route.path !== 'evaluacion-seo').filter(route => route.path !== 'analisis-telus');
   showEvaluacionSEO: boolean = false;
+  showAnalisisTelus: boolean = false;
 
   constructor(private menuService: MenuService, private router: Router) {}
 
   ngOnInit() {
-    this.menuService.showEvaluacionSEO$.subscribe(show => {
+    this.menuService.showEvaluacionSEO.subscribe(show => {
       this.showEvaluacionSEO = show;
+    });
+    this.menuService.showAnalisisTelus.subscribe(show => {
+      this.showAnalisisTelus = show;
     });
 
     this.router.events.pipe(
-      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
+      filter((event: Event): event is NavigationEnd => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
-      if (event.urlAfterRedirects !== '/evaluacion-seo') {
+      if (event.urlAfterRedirects !== '/evaluacion-seo' && event.urlAfterRedirects !== '/analisis-telus') {
         this.menuService.setShowEvaluacionSEO(false);
+        this.menuService.setShowAnalisisTelus(false);
       }
     });
   }
