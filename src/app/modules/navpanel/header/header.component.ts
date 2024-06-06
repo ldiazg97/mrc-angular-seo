@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit{
     ngOnInit() {
       this.seguimientoItems = [
         { label: 'Sitios Web', icon: 'pi pi-server' },
+        { label: 'Sitios Web Compartidos', icon: 'pi pi-share-alt' },
         { label: 'Valoraciones de Variables', icon: 'pi pi-star-fill' },
         { label: 'Comentarios', icon: 'pi pi-comments' },
         { label: 'Webmasters', icon: 'pi pi-users' },

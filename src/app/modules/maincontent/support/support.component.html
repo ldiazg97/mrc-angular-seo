@@ -153,6 +153,53 @@
         </ng-template>
     </p-table>
   </div>
+  <div style="margin-top: 15px;">
+    <mat-toolbar class="custom-toolbar">
+        <mat-icon fontIcon="format_align_left" class="icon-left-margin"></mat-icon>
+        <span>ACOMPAÑAMIENTOS RENOVADOS</span>
+        <span style="flex: 1;"></span> <!-- Espaciador flexible -->
+        <button class="custom-button-toggle round-button" (click)="toggleTableVisibility1()">
+            <mat-icon style="margin-right:5px; vertical-align: middle;" fontIcon="expand_more"></mat-icon>
+        </button>
+    </mat-toolbar>
+  
+    <div class="linea-separadora"></div> <!-- Divisor -->
+  
+    <p-table 
+        [value]="support" 
+        styleClass="p-datatable-striped"
+        [scrollable]="true" 
+        scrollHeight="400px" 
+        [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+              <th>#</th>
+              <th>Entidad</th>
+              <th>Correo</th>
+              <th>Modalidad</th>
+              <th>Lugar de Realizacion</th>
+              <th>Fecha de Solicitud</th>
+              <th>Fecha de Realizacion</th>
+              <th>Cantidad de Personas</th>
+              <th>Precio</th>
+              <th>Acciónes</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-sitioWeb >
+            <tr *ngIf="tableVisible1===true">
+              <!-- <td>{{support.numero}}</td>
+              <td>{{support.correo}}</td>
+              <td>{{support.modalidad}}</td>
+              <td>{{support.lugar}}</td>
+              <td>{{support.fechaSol}}</td>
+              <td>{{support.fechaReal}}</td>
+              <td>{{support.cantPer}}</td>
+              <td>{{support.precio}}</td>
+              <td></td> -->
+            </tr>
+        </ng-template>
+    </p-table>
+  </div>
   <div style="margin-bottom: 15px;">
     <mat-toolbar class="custom-toolbar">
         <mat-icon fontIcon="format_align_left" class="icon-left-margin"></mat-icon>
