@@ -28,7 +28,7 @@
         [value]="subscription" 
         styleClass="p-datatable-striped "
         [scrollable]="true" 
-        scrollHeight="400px"
+        scrollHeight="500px"
         [paginator]="true"
         [rows]="5"
         [first]="first"
@@ -38,52 +38,69 @@
         (onPage)="pageChange($event)"
         [rowsPerPageOptions]="[5, 10, 25, 50]"
         [tableStyle]="{'min-width': '50rem'}"
-        [globalFilterFields]="['user', 'organismo', 'correo', 'status']">
+        [globalFilterFields]="['user', 'organismo', 'correo', 'sitio','tiempo','fecha', 'paquete']">
         
 
  
         <ng-template pTemplate="caption">
             <div class="flex">
-                <p-iconField iconPosition="left" class="ml-auto">
-                    <p-inputIcon>
+                <p-iconField iconPosition="space-between" class="ml-auto">
+                    <p-inputIcon class="my-mod">
                         <i class="pi pi-search"></i>
                     </p-inputIcon>
-                    <input pInputText type="text" (input)="onInputChange($event)" placeholder="Search keyword" />
+                    <input pInputText type="text" (input)="onInputChange($event)" placeholder="Buscar..."/>
 
                 </p-iconField>
             </div>
         </ng-template>
         <ng-template pTemplate="header" >
             <tr>
-                <th pSortableColumn="#" style="width:20%">
-                    # <p-sortIcon field="#" />
+                <th pSortableColumn="#">
+                    <div class="header-content">
+                        #<p-sortIcon field="#"></p-sortIcon>
+                    </div>
                 </th>
-                <th pSortableColumn="user" style="width:20%">
-                    Nombre del Usuario <p-sortIcon field="user" />
+                <th pSortableColumn="user" style="width:30%;">
+                    <div class="header-content">
+                        Nombre del Usuario<p-sortIcon field="user"></p-sortIcon>
+                    </div>
                 </th>
-                <th pSortableColumn="organismo" style="width:20%">
-                    Organismo <p-sortIcon field="organismo" />
+                <th pSortableColumn="organismo" style="width:20%;">
+                    <div class="header-content">
+                        Organismo<p-sortIcon field="organismo"></p-sortIcon>
+                    </div>
                 </th>
-                <th pSortableColumn="correo" style="width:20%">
-                    Correo <p-sortIcon field="correo" />
+                <th pSortableColumn="correo" style="width:20%;">
+                    <div class="header-content">
+                        Correo<p-sortIcon field="correo"></p-sortIcon>
+                    </div>
                 </th>
-                <th pSortableColumn="sitio" style="width:20%">
-                    Sitios Web <p-sortIcon field="sitio" />
+                <th pSortableColumn="sitio" style="width:20%;">
+                    <div class="header-content">
+                        Sitios Web<p-sortIcon field="sitio"></p-sortIcon>
+                    </div>
                 </th>
-                <th pSortableColumn="cantidad" style="width:20%">
-                    Cantidad de Sitios Web <p-sortIcon field="cantidad" />
+                <th pSortableColumn="cantidad" style="width:20%;">
+                    <div class="header-content">
+                        Cantidad de Sitios Web<p-sortIcon field="cantidad"></p-sortIcon>
+                    </div>
                 </th>
-                <th pSortableColumn="paquete" style="width:20%">
-                    Paquete <p-sortIcon field="paquete" />
+                <th pSortableColumn="paquete" style="width:20%;">
+                    <div class="header-content">
+                        Paquete<p-sortIcon field="paquete"></p-sortIcon>
+                    </div>
                 </th>
-                <th pSortableColumn="fecha" style="width:20%">
-                    Fecha de Solicitud <p-sortIcon field="fecha" />
+                <th pSortableColumn="fecha" style="width:20%;">
+                    <div class="header-content">
+                        Fecha de Solicitud<p-sortIcon field="fecha"></p-sortIcon>
+                    </div>
                 </th>
-                <th pSortableColumn="tiempo" style="width:20%">
-                    Tiempo Solicitado <p-sortIcon field="tiempo" />
+                <th pSortableColumn="tiempo" style="width:20%;">
+                    <div class="header-content">
+                        Tiempo Solicitado<p-sortIcon field="tiempo"></p-sortIcon>
+                    </div>
                 </th>
-                <th>
-                </th>
+                <th>Acciones</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-subscription >
@@ -92,7 +109,9 @@
                 <td class="center-align">{{subscription.nombre_del_usuario}}</td>
                 <td class="center-align">{{subscription.organismo}}</td>
                 <td class="center-align">{{subscription.correo}}</td>
-                <td class="center-align">{{subscription.sitios_web}}</td>
+                <td class="center-align">
+                    <div *ngFor="let sitio of subscription.sitios_web">{{sitio}}</div>
+                </td>
                 <td class="center-align">{{subscription.cantidad_sitios_web}}</td>
                 <td class="center-align">{{subscription.paquete}}</td>
                 <td class="center-align">{{subscription.fecha_de_solicitud}}</td>
@@ -120,7 +139,7 @@
         [value]="subscription" 
         styleClass="p-datatable-striped "
         [scrollable]="true" 
-        scrollHeight="400px"
+        scrollHeight="500px"
         [tableStyle]="{'min-width': '50rem'}"
         [paginator]="true"
         [rows]="5"
@@ -128,7 +147,20 @@
         [showCurrentPageReport]="true"
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
         (onPage)="pageChange1($event)"
-        [rowsPerPageOptions]="[5, 10, 25, 50]">
+        [rowsPerPageOptions] ="[5, 10, 25, 50]">
+
+        <ng-template pTemplate="caption">
+            <div class="flex">
+                <p-iconField iconPosition="space-between" class="ml-auto">
+                    <p-inputIcon class="my-mod">
+                        <i class="pi pi-search"></i>
+                    </p-inputIcon>
+                    <input pInputText type="text" (input)="onInputChange($event)" placeholder="Buscar..."/>
+
+                </p-iconField>
+            </div>
+        </ng-template>
+
         <ng-template pTemplate="header" >
             <tr>
                 <th>#</th>
@@ -177,7 +209,7 @@
         [value]="subscription" 
         styleClass="p-datatable-striped "
         [scrollable]="true" 
-        scrollHeight="400px"
+        scrollHeight="500px"
         [paginator]="true"
         [rows]="5"
         [first]="first2"
@@ -187,6 +219,19 @@
         (onPage)="pageChange2($event)"
         [rowsPerPageOptions]="[5, 10, 25, 50]"
         [tableStyle]="{'min-width': '50rem'}">
+
+        <ng-template pTemplate="caption">
+            <div class="flex">
+                <p-iconField iconPosition="space-between" class="ml-auto">
+                    <p-inputIcon class="my-mod">
+                        <i class="pi pi-search"></i>
+                    </p-inputIcon>
+                    <input pInputText type="text" (input)="onInputChange($event)" placeholder="Buscar..."/>
+
+                </p-iconField>
+            </div>
+        </ng-template>
+
         <ng-template pTemplate="header" >
             <tr>
                 <th>#</th>
@@ -244,8 +289,21 @@
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
         (onPage)="pageChange3($event)"
         [rowsPerPageOptions]="[5, 10, 25, 50]"
-        scrollHeight="400px"
+        scrollHeight="500px"
         [tableStyle]="{'min-width': '50rem'}">
+
+        <ng-template pTemplate="caption">
+            <div class="flex">
+                <p-iconField iconPosition="space-between" class="ml-auto">
+                    <p-inputIcon class="my-mod">
+                        <i class="pi pi-search"></i>
+                    </p-inputIcon>
+                    <input pInputText type="text" (input)="onInputChange($event)" placeholder="Buscar..."/>
+
+                </p-iconField>
+            </div>
+        </ng-template>
+
         <ng-template pTemplate="header" >
             <tr>
                 <th>#</th>
@@ -303,8 +361,21 @@
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
         (onPage)="pageChange4($event)"
         [rowsPerPageOptions]="[5, 10, 25, 50]"
-        scrollHeight="400px"
+        scrollHeight="500px"
         [tableStyle]="{'min-width': '50rem'}">
+
+        <ng-template pTemplate="caption">
+            <div class="flex">
+                <p-iconField iconPosition="space-between" class="ml-auto">
+                    <p-inputIcon class="my-mod">
+                        <i class="pi pi-search"></i>
+                    </p-inputIcon>
+                    <input pInputText type="text" (input)="onInputChange($event)" placeholder="Buscar..."/>
+
+                </p-iconField>
+            </div>
+        </ng-template>
+
         <ng-template pTemplate="header" >
             <tr>
                 <th>#</th>
@@ -353,7 +424,7 @@
         [value]="subscription" 
         styleClass="p-datatable-striped "
         [scrollable]="true" 
-        scrollHeight="400px"
+        scrollHeight="500px"
         [tableStyle]="{'min-width': '50rem'}"
         [paginator]="true"
         [rows]="5"
@@ -363,6 +434,19 @@
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
         (onPage)="pageChange5($event)"
         [rowsPerPageOptions]="[5,10, 25, 50]">
+
+        <ng-template pTemplate="caption">
+            <div class="flex">
+                <p-iconField iconPosition="space-between" class="ml-auto">
+                    <p-inputIcon class="my-mod">
+                        <i class="pi pi-search"></i>
+                    </p-inputIcon>
+                    <input pInputText type="text" (input)="onInputChange($event)" placeholder="Buscar..."/>
+
+                </p-iconField>
+            </div>
+        </ng-template>
+
         <ng-template pTemplate="header" >
             <tr>
                 <th>#</th>
@@ -411,7 +495,7 @@
         [value]="subscription" 
         styleClass="p-datatable-striped "
         [scrollable]="true" 
-        scrollHeight="400px"
+        scrollHeight="500px"
         [paginator]="true"
         [rows]="5"
         [first]="first6"
@@ -420,6 +504,19 @@
         (onPage)="pageChange6($event)"
         [rowsPerPageOptions]="[5, 10, 25, 50]"
         [tableStyle]="{'min-width': '50rem'}">
+
+        <ng-template pTemplate="caption">
+            <div class="flex">
+                <p-iconField iconPosition="space-between" class="ml-auto">
+                    <p-inputIcon class="my-mod">
+                        <i class="pi pi-search"></i>
+                    </p-inputIcon>
+                    <input pInputText type="text" (input)="onInputChange($event)" placeholder="Buscar..."/>
+
+                </p-iconField>
+            </div>
+        </ng-template>
+
         <ng-template pTemplate="header" >
             <tr>
                 <th>#</th>

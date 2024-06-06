@@ -1,8 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Table, TableModule } from 'primeng/table';
 import { MatIconModule } from '@angular/material/icon';
 import { ButtonModule } from 'primeng/button';
@@ -13,6 +11,7 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { LazyLoadEvent } from 'primeng/api';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
+
 
 
 @Component({
