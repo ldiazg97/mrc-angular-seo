@@ -33,7 +33,6 @@
         [rows]="5"
         [first]="first"
         [showCurrentPageReport]="true"
-        
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
         (onPage)="pageChange($event)"
         [rowsPerPageOptions]="[5, 10, 25, 50]"
@@ -136,6 +135,7 @@
     <div class="linea-separadora"></div> <!-- Divisor -->
 
     <p-table 
+        #dt3
         [value]="subscription" 
         styleClass="p-datatable-striped "
         [scrollable]="true" 
@@ -147,7 +147,9 @@
         [showCurrentPageReport]="true"
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
         (onPage)="pageChange1($event)"
-        [rowsPerPageOptions] ="[5, 10, 25, 50]">
+        [rowsPerPageOptions] ="[5, 10, 25, 50]"
+        [globalFilterFields]="['user', 'organismo', 'correo', 'sitio','tiempo','fecha', 'paquete']"
+        >
 
         <ng-template pTemplate="caption">
             <div class="flex">
@@ -155,7 +157,7 @@
                     <p-inputIcon class="my-mod">
                         <i class="pi pi-search"></i>
                     </p-inputIcon>
-                    <input pInputText type="text" (input)="onInputChange($event)" placeholder="Buscar..."/>
+                    <input pInputText type="text" (input)="onInputChange1($event)" placeholder="Buscar..."/>
 
                 </p-iconField>
             </div>
@@ -214,11 +216,12 @@
         [rows]="5"
         [first]="first2"
         [showCurrentPageReport]="true"
-        
+        #dt4
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
         (onPage)="pageChange2($event)"
         [rowsPerPageOptions]="[5, 10, 25, 50]"
-        [tableStyle]="{'min-width': '50rem'}">
+        [tableStyle]="{'min-width': '50rem'}"
+        [globalFilterFields]="['user', 'organismo', 'correo', 'sitio','tiempo','fecha', 'paquete']">
 
         <ng-template pTemplate="caption">
             <div class="flex">
@@ -226,7 +229,7 @@
                     <p-inputIcon class="my-mod">
                         <i class="pi pi-search"></i>
                     </p-inputIcon>
-                    <input pInputText type="text" (input)="onInputChange($event)" placeholder="Buscar..."/>
+                    <input pInputText type="text" (input)="onInputChange2($event)" placeholder="Buscar..."/>
 
                 </p-iconField>
             </div>
@@ -285,12 +288,14 @@
         [rows]="5"
         [first]="first3"
         [showCurrentPageReport]="true"
-        
+        #dt5
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
         (onPage)="pageChange3($event)"
         [rowsPerPageOptions]="[5, 10, 25, 50]"
         scrollHeight="500px"
-        [tableStyle]="{'min-width': '50rem'}">
+        [tableStyle]="{'min-width': '50rem'}"
+        [globalFilterFields]="['user', 'organismo', 'correo', 'sitio','tiempo','fecha', 'paquete']"
+        >
 
         <ng-template pTemplate="caption">
             <div class="flex">
@@ -298,7 +303,7 @@
                     <p-inputIcon class="my-mod">
                         <i class="pi pi-search"></i>
                     </p-inputIcon>
-                    <input pInputText type="text" (input)="onInputChange($event)" placeholder="Buscar..."/>
+                    <input pInputText type="text" (input)="onInputChange3($event)" placeholder="Buscar..."/>
 
                 </p-iconField>
             </div>
@@ -357,12 +362,14 @@
         [rows]="5"
         [first]="first4"
         [showCurrentPageReport]="true"
-        
+        #dt6
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
         (onPage)="pageChange4($event)"
         [rowsPerPageOptions]="[5, 10, 25, 50]"
         scrollHeight="500px"
-        [tableStyle]="{'min-width': '50rem'}">
+        [tableStyle]="{'min-width': '50rem'}"
+        [globalFilterFields]="['user', 'organismo', 'correo', 'sitio','tiempo','fecha', 'paquete']"
+        >
 
         <ng-template pTemplate="caption">
             <div class="flex">
@@ -370,7 +377,7 @@
                     <p-inputIcon class="my-mod">
                         <i class="pi pi-search"></i>
                     </p-inputIcon>
-                    <input pInputText type="text" (input)="onInputChange($event)" placeholder="Buscar..."/>
+                    <input pInputText type="text" (input)="onInputChange4($event)" placeholder="Buscar..."/>
 
                 </p-iconField>
             </div>
@@ -430,10 +437,12 @@
         [rows]="5"
         [first]="first5"
         [showCurrentPageReport]="true"
-        
+        #dt7
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
         (onPage)="pageChange5($event)"
-        [rowsPerPageOptions]="[5,10, 25, 50]">
+        [rowsPerPageOptions]="[5, 10, 25, 50]"
+        [globalFilterFields]="['user', 'organismo', 'correo', 'sitio','tiempo','fecha', 'paquete']"
+        >
 
         <ng-template pTemplate="caption">
             <div class="flex">
@@ -441,7 +450,7 @@
                     <p-inputIcon class="my-mod">
                         <i class="pi pi-search"></i>
                     </p-inputIcon>
-                    <input pInputText type="text" (input)="onInputChange($event)" placeholder="Buscar..."/>
+                    <input pInputText type="text" (input)="onInputChange5($event)" placeholder="Buscar..."/>
 
                 </p-iconField>
             </div>
@@ -503,15 +512,17 @@
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
         (onPage)="pageChange6($event)"
         [rowsPerPageOptions]="[5, 10, 25, 50]"
-        [tableStyle]="{'min-width': '50rem'}">
-
+        [tableStyle]="{'min-width': '50rem'}"
+        #dt8
+        [globalFilterFields]="['user', 'organismo', 'correo', 'sitio','tiempo','fecha', 'paquete']">
+        
         <ng-template pTemplate="caption">
             <div class="flex">
                 <p-iconField iconPosition="space-between" class="ml-auto">
                     <p-inputIcon class="my-mod">
                         <i class="pi pi-search"></i>
                     </p-inputIcon>
-                    <input pInputText type="text" (input)="onInputChange($event)" placeholder="Buscar..."/>
+                    <input pInputText type="text" (input)="onInputChange6($event)" placeholder="Buscar..."/>
 
                 </p-iconField>
             </div>

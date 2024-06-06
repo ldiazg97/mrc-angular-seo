@@ -138,9 +138,67 @@
   }
   
   
-  
-  
+  /* Estilo para el paginador */
+/* Estilos para el paginador generado por PrimeNG */
+/* Estilos personalizados para el paginador dentro del p-table */
+.p-paginator .p-dropdown {
+  display: flex;
+  align-items: center;  /* Centrar verticalmente */
+  justify-content: center;  /* Centrar horizontalmente */
+}
 
-  
-  
-  
+.p-paginator .p-dropdown .p-dropdown-label {
+  display: flex;
+  align-items: center;  /* Centrar verticalmente */
+  justify-content: center;  /* Centrar horizontalmente */
+  text-align: center;
+  width: 100%;
+}
+
+.p-paginator .p-dropdown .p-dropdown-item {
+  display: flex;
+  align-items: center;  /* Centrar verticalmente */
+  justify-content: center;  /* Centrar horizontalmente */
+}
+
+/* Estilo para el paginador */
+.p-paginator {
+  background-color: #f0f0f0; /* Fondo del paginador */
+  border: 1px solid #ddd; /* Borde del paginador */
+  padding: 10px; /* Espaciado interno */
+  margin-top: 10px; /* Margen superior */
+}
+
+.p-paginator .p-paginator-pages {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.p-paginator .p-paginator-page {
+  margin: 0 5px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+.p-paginator .p-paginator-page.p-highlight {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.p-paginator .p-paginator-page.p-disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.p-paginator .p-paginator-element {
+  margin-right: 10px;
+}
+
+.p-paginator .p-paginator-current {
+  color: #333;
+}
+

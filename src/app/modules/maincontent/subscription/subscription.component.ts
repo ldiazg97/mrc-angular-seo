@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Table, TableModule } from 'primeng/table';
@@ -11,6 +11,8 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { LazyLoadEvent } from 'primeng/api';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
+import { PaginatorModule } from 'primeng/paginator';
+
 
 
 
@@ -29,14 +31,17 @@ import { InputIconModule } from 'primeng/inputicon';
     CommonModule,
     BreadcrumbModule,
     RouterOutlet,
+    PaginatorModule
   ],
   templateUrl: './subscription.component.html',
   styleUrl: './subscription.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class SubscriptionComponent {
 
-  first = 0;
-  rows = 10;
+  totalRecords: number = 0;  // Total de registros
+  rows: number = 5;  // Filas por página
+  first: number = 0;  // Primer registro en la página actual
   first1 = 0;
   rows1 = 10;
   first2 = 0;
@@ -50,10 +55,47 @@ export class SubscriptionComponent {
   first6 = 0;
   rows6 = 10;
   @ViewChild('dt2') dt2!: Table;
+  @ViewChild('dt3') dt3!: Table;
+  @ViewChild('dt4') dt4!: Table;
+  @ViewChild('dt5') dt5!: Table;
+  @ViewChild('dt6') dt6!: Table;
+  @ViewChild('dt7') dt7!: Table;
+  @ViewChild('dt8') dt8!: Table;
+
   onInputChange(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
     const value = inputElement.value;
     this.dt2.filterGlobal(value, 'contains');
+  }
+  onInputChange1(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const value = inputElement.value;
+    this.dt3.filterGlobal(value, 'contains');
+  }
+  onInputChange2(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const value = inputElement.value;
+    this.dt4.filterGlobal(value, 'contains');
+  }
+  onInputChange3(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const value = inputElement.value;
+    this.dt5.filterGlobal(value, 'contains');
+  }
+  onInputChange4(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const value = inputElement.value;
+    this.dt6.filterGlobal(value, 'contains');
+  }
+  onInputChange5(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const value = inputElement.value;
+    this.dt7.filterGlobal(value, 'contains');
+  }
+  onInputChange6(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const value = inputElement.value;
+    this.dt8.filterGlobal(value, 'contains');
   }
 
 pageChange(event: LazyLoadEvent) {
@@ -499,7 +541,5 @@ private addBreadcrumb(route: ActivatedRouteSnapshot) {
         children.forEach(child => this.addBreadcrumb(child));
     }
 }
-
-
 
 }
