@@ -14,7 +14,7 @@ import { MatIcon } from '@angular/material/icon';
   imports:[CommonModule,MatIcon,RouterModule]
 })
 export class NavComponent implements OnInit {
-  public menuItems = routes.filter(route => route.path !== '').filter(route => route.path !== 'sitios-compartidos').filter(route => route.path !== 'evaluacion-seo').filter(route => route.path !== 'analisis-telus');
+  public menuItems = routes.filter(route => route.path !== '').filter(route => route.path !== 'sitios-web-compartidos').filter(route => route.path !== 'evaluacion-seo').filter(route => route.path !== 'analisis-telus');
   showEvaluacionSEO: boolean = false;
   showAnalisisTelus: boolean = false;
 
