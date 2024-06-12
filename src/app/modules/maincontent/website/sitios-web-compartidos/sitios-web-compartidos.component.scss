@@ -1,15 +1,81 @@
 .custom-toolbar {
-    background-color: white; /* Cambia esto al color que desees */
-    color: rgb(199, 199, 199);
-  }
-  
-  .linea-separadora {
-    height: 1px;
-    width: 90%; /* Ancho del 50% del contenedor */
-    background-color: rgba(128, 128, 128, 0.5); /* Color gris transparente */
-    margin: 10px auto; /* Margen superior e inferior de 10px y centrado horizontal */
-  }
-  
-  .icon-left-margin {
-    margin-right: 8px; /* Ajusta el valor según el espacio deseado */
+  background-color: white; /* Cambia esto al color que desees */
+  color: rgb(199, 199, 199);
+}
+
+.linea-separadora {
+  height: 1px;
+  width: 90%; /* Ancho del 50% del contenedor */
+  background-color: rgba(128, 128, 128, 0.5); /* Color gris transparente */
+  margin: 10px auto; /* Margen superior e inferior de 10px y centrado horizontal */
+}
+
+.icon-left-margin {
+  margin-right: 8px; /* Ajusta el valor según el espacio deseado */
+}
+
+.my-mod {
+  padding-right: 20px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Espacio entre los botones */
+}
+
+.btn {
+  color: white;
+  border-radius: 5%;
+  border: none;
+  padding: 5px 2px; /* Ajusta el padding para reducir el tamaño del botón */
+  margin: 0; /* Elimina cualquier margen que pueda afectar el tamaño */
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center; /* Alinea el contenido verticalmente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn i {
+  margin-right: 5px; /* Espacio entre el icono y el texto */
+}
+
+.btn-red {
+  background-color: #d50b11;
+}
+
+.btn-red:hover {
+  color: #d50b11;
+  background-color: white;
+  border: 1px solid #d50b11;
+}
+
+.btn-yellow {
+  background-color: #ff9e12;
+  color: white; /* Asegúrate de que el texto sea blanco */
+}
+
+.btn-yellow:hover {
+  color: #ff9e12;
+  background-color: white;
+  border: 1px solid #ff9e12;
+}
+
+.center-align {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-content span {
+  margin-right: 8px; /* Ajusta el espacio entre el texto y el icono de ordenación */
 }
