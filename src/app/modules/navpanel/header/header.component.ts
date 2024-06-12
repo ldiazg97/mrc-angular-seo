@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuModule } from 'primeng/menu';
+import { NavServiceService } from '../nav/nav-service.service';
 
 @Component({
     selector: 'app-header',
@@ -25,6 +26,13 @@ export class HeaderComponent implements OnInit{
     seguimientoItems: MenuItem[] = [];
     configurarItems: MenuItem[] = [];
     auditoriaItems: MenuItem[] =[];
+
+    //cerrar el sidebar
+    constructor(private navservice:NavServiceService){}
+
+    onButtonClick(){
+        this.navservice.toggleSidebar();
+    }
   
     ngOnInit() {
       this.seguimientoItems = [
