@@ -1,34 +1,81 @@
 <mat-toolbar class="custom-toolbar">
     <mat-icon fontIcon="format_align_left" class="icon-left-margin"></mat-icon>
     <span>SITIOS WEB COMPARTIDOS</span>
-</mat-toolbar>
-
+  </mat-toolbar>
   
-
   <div class="linea-separadora"></div> <!-- Divisor -->
   
   <p-table 
+    #dt1
     [value]="sitiosWebCompartidos" 
     styleClass="p-datatable-striped" 
-    [tableStyle]="{'min-width': '50rem'}">
-      <ng-template pTemplate="header">
-          <tr>
-              <th>#</th>
-              <th>Sitios Web</th>
-              <th>Compartido a</th>
-              <th>Rol Compartido</th>
-              <th>Fecha</th>
-              <th>Acción</th>
-          </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-sitioWeb>
-          <tr>
-              <td>{{sitioWeb.numeroSitioWeb}}</td>
-              <td>{{sitioWeb.sitioWeb}}</td>
-              <td>{{sitioWeb.compartidoA}}</td>
-              <td>{{sitioWeb.rolC}}</td>
-              <td>{{sitioWeb.fecha}}</td>
-              <td></td>
-          </tr>
-      </ng-template>
+    [tableStyle]="{'min-width': '50rem'}"
+    [globalFilterFields]="['sitioWeb', 'compartidoA', 'rolC', 'fecha']">
+    
+    <ng-template pTemplate="caption">
+      <div class="flex">
+        <p-iconField iconPosition="space-between" class="ml-auto">
+          <p-inputIcon class="my-mod">
+            <i class="pi pi-search"></i>
+          </p-inputIcon>
+          <input pInputText type="text" (input)="onInputChange($event)" placeholder="Buscar..."/>
+        </p-iconField>
+      </div>
+    </ng-template>
+    
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="center-align">
+          <div class="header-content">
+            <span>#</span>
+          </div>
+        </th>
+        <th pSortableColumn="sitioWeb" class="center-align">
+          <div class="header-content">
+            <span>Sitios Web</span>
+            <p-sortIcon field="sitioWeb"></p-sortIcon>
+          </div>
+        </th>
+        <th pSortableColumn="compartidoA" class="center-align">
+          <div class="header-content">
+            <span>Compartido</span>
+            <p-sortIcon field="compartidoA"></p-sortIcon>
+          </div>
+        </th>
+        <th pSortableColumn="rolC" class="center-align">
+          <div class="header-content">
+            <span>Rol Compartido</span>
+            <p-sortIcon field="rolC"></p-sortIcon>
+          </div>
+        </th>
+        <th pSortableColumn="fecha" class="center-align">
+          <div class="header-content">
+            <span>Fecha</span>
+            <p-sortIcon field="fecha"></p-sortIcon>
+          </div>
+        </th>
+        <th class="center-align">
+          <div class="header-content">
+            <span>Acción</span>
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    
+    <ng-template pTemplate="body" let-sitioWeb>
+      <tr>
+        <td class="center-align">{{sitioWeb.numeroSitioWeb}}</td>
+        <td class="center-align">{{sitioWeb.sitioWeb}}</td>
+        <td class="center-align">{{sitioWeb.compartidoA}}</td>
+        <td class="center-align">{{sitioWeb.rolC}}</td>
+        <td class="center-align">{{sitioWeb.fecha}}</td>
+        <td class="center-align">
+          <div class="button-container">
+            <button class="btn btn-red"><i class="pi pi-trash"></i>Eliminar</button>
+            <button class="btn btn-yellow"><i class="pi pi-pencil"></i>Editar</button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
+  

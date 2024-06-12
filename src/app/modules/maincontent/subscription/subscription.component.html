@@ -37,7 +37,7 @@
         (onPage)="pageChange($event)"
         [rowsPerPageOptions]="[5, 10, 25, 50]"
         [tableStyle]="{'min-width': '50rem'}"
-        [globalFilterFields]="['user', 'organismo', 'correo', 'sitio','tiempo','fecha', 'paquete']">
+        [globalFilterFields]="['nombre_del_usuario', 'organismo', 'correo', 'sitio','tiempo','fecha', 'paquete']">
         
 
  
@@ -54,14 +54,14 @@
         </ng-template>
         <ng-template pTemplate="header" >
             <tr>
-                <th pSortableColumn="#">
+                <th >
                     <div class="header-content">
-                        #<p-sortIcon field="#"></p-sortIcon>
+         
                     </div>
                 </th>
-                <th pSortableColumn="user" style="width:30%;">
+                <th pSortableColumn="nombre_del_usuario" style="width:30%;">
                     <div class="header-content">
-                        Nombre del Usuario<p-sortIcon field="user"></p-sortIcon>
+                        Nombre del Usuario<p-sortIcon field="nombre_del_usuario"></p-sortIcon>
                     </div>
                 </th>
                 <th pSortableColumn="organismo" style="width:20%;">
