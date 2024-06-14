@@ -31,7 +31,9 @@ export class HeaderComponent implements OnInit{
     constructor(private navservice:NavServiceService){}
 
     onButtonClick(){
-        this.navservice.toggleSidebar();
+        console.log('El botón fue clickeado');
+
+        // this.navservice.toggleSidebar();
     }
   
     ngOnInit() {
