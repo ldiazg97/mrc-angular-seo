@@ -1,4 +1,4 @@
-<div id="home">
+<div id="home" [ngClass]="{'contract': (navService.navContracted$ | async)}">
   <header>
     <app-header></app-header>
   </header>
@@ -6,15 +6,11 @@
     <app-nav></app-nav>
   </nav>
   <main>
-  <router-outlet/>
-</main>
-
-
+    <router-outlet></router-outlet>
+  </main>
   <footer>
     <p>
       Copyright © 2024 <a href="https://www.uci.cu">Universidad de las Ciencias Informáticas</a> Todos los Derechos Reservados
     </p>
   </footer>
-
 </div>
-

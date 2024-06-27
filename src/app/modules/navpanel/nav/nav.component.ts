@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit,Renderer2, ElementRef } from '@angular/core';
 import { MenuService } from '../../../Services/menu.service';
 import { routes } from '../../../app.routes';
 import { Router, NavigationEnd, Event, RouterModule } from '@angular/router';
@@ -6,7 +6,8 @@ import { filter } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { NavServiceService } from './nav-service.service';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { NavService } from '../../../Services/nav.service';
 
 @Component({
   selector: 'app-nav',
@@ -15,17 +16,12 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./nav.component.scss'],
   imports: [CommonModule, MatIcon, RouterModule],
 })
-export class NavComponent implements OnInit, OnDestroy {
+export class NavComponent implements OnInit {
 
   // inicializa isCollapsed
-  
-  isCollapsed: boolean;
-  private subscription: Subscription;
-  
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  isNavContracted$: Observable<boolean>;
+  isNavContracted: boolean = false;
+  logoSrc: string = '../../../../assets/Logos/SEOWEBMAS.svg';
 
   public menuItems = routes
     .filter((route) => route.path !== '')
@@ -38,21 +34,22 @@ export class NavComponent implements OnInit, OnDestroy {
   constructor(
     private menuService: MenuService,
     private router: Router,
-    private navservice: NavServiceService
-  ) {
-    this.isCollapsed = false;
-    this.subscription = this.navservice.isCollapsed$.subscribe(
-      (isCollapsed)=>{
-        this.isCollapsed=isCollapsed;
-      }
-    );
+    private navService: NavService,
+    private renderer: Renderer2, 
+    private el: ElementRef
+  ) {this.isNavContracted$ = this.navService.navContracted$;
   }
 
   ngOnInit() {
-    //cerrar sidevar
-    this.subscription = this.navservice.isCollapsed$.subscribe(
-      (isCollapsed) => (this.isCollapsed = isCollapsed)
-    );
+    this.isNavContracted$.subscribe(contracted => {
+      this.isNavContracted = contracted;
+      this.logoSrc = contracted ? '../../../../assets/Logos/SEO WEB MAS-01.svg' : '../../../../assets/Logos/SEOWEBMAS.svg';
+      if (contracted) {
+        this.renderer.addClass(this.el.nativeElement, 'contract');
+      } else {
+        this.renderer.removeClass(this.el.nativeElement, 'contract');
+      }
+    });
 
 
     this.menuService.showEvaluacionSEO.subscribe((show) => {
@@ -78,5 +75,8 @@ export class NavComponent implements OnInit, OnDestroy {
           this.menuService.setShowAnalisisTelus(false);
         }
       });
+  }
+  toggleNav() {
+    this.navService.toggleNav();
   }
 }

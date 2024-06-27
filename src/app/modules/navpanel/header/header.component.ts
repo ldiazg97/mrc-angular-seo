@@ -7,6 +7,7 @@ import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuModule } from 'primeng/menu';
 import { NavServiceService } from '../nav/nav-service.service';
+import { NavService } from '../../../Services/nav.service';
 
 @Component({
     selector: 'app-header',
@@ -28,7 +29,7 @@ export class HeaderComponent implements OnInit{
     auditoriaItems: MenuItem[] =[];
 
     //cerrar el sidebar
-    constructor(private navservice:NavServiceService){}
+    constructor(private navService: NavService){}
 
     onButtonClick(){
         console.log('El botón fue clickeado');
@@ -89,4 +90,7 @@ export class HeaderComponent implements OnInit{
         // Lógica para el clic en el botón de auditoría
         console.log('Auditoría button clicked');
     }
+    toggleNav() {
+        this.navService.toggleNav();
+      }
 }

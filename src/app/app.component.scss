@@ -11,7 +11,11 @@ html, body {
   grid-template-rows: auto 1fr;
   grid-template-columns: var(--nav-width) 1fr;
   height: 100vh;
-  overflow: hidden; /* Oculta el desbordamiento para el contenedor principal */
+  overflow: hidden;
+}
+
+#home.contract {
+  grid-template-columns: var(--nav-width-contracted) 1fr;
 }
 
 #home > header {
@@ -21,7 +25,7 @@ html, body {
 }
 
 header, nav, footer {
-  flex: 0 0 auto; /* No cambia de tamaño */
+  flex: 0 0 auto;
 }
 
 #home > nav {
@@ -32,25 +36,30 @@ header, nav, footer {
 #home > main {
   grid-area: main;
   background-color: rgb(247, 247, 247);
-  overflow-y: auto; /* Permite el scroll vertical */
-  padding-bottom: 50px; /* Añade espacio inferior para que el contenido no quede oculto tras el footer */
+  overflow-y: auto;
+  padding-bottom: 50px;
 }
 
 footer {
   grid-area: foot;
   height: 50px;
-  display: flex; /* Para centrar el contenido verticalmente */
-  align-items: center; /* Centrar verticalmente */
-  justify-content: right; /* Centrar horizontalmente */
+  display: flex;
+  align-items: center;
+  justify-content: right;
   text-align: center;
   font-size: small;
   color: rgb(120, 140, 160);
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* Opcional: Añadir sombra para destacar */
-  position: fixed; /* Fija el footer en la parte inferior */
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
   bottom: 0;
-  left: var(--nav-width); /* Alinea el footer con el contenido principal */
-  width: calc(100% - var(--nav-width)); /* Ajusta el ancho del footer */
+  left: var(--nav-width);
+  width: calc(100% - var(--nav-width));
+}
+
+#home.contract footer {
+  left: var(--nav-width-contracted);
+  width: calc(100% - var(--nav-width-contracted));
 }
 
 footer p {
