@@ -1,8 +1,8 @@
 <a href="https://seowebmas.redcuba.cu/">
-  <img src="../../../../assets/Logos/SEOWEBMAS.svg" alt="Logo de SEO" style="margin-left:15px;margin-right:20px; margin-top: 25px; margin-bottom: 30px">
+  <img [src]="logoSrc" alt="Logo de SEO" class="nav-logo">
 </a>
 
-<div id="menu" class="bg-202a62 min-h-screen z-10 text-slate-300 w-65 left-0 h-screen">
+<div id="menu" class="bg-202a62 min-h-screen z-10 text-slate-300 left-0 h-screen">
   <div id="nav" class="w-full">
     <a 
       *ngFor="let item of menuItems" 
@@ -10,19 +10,19 @@
       routerLinkActive="active-link"
       class="w-full px-2 inline-flex items-center border-b border-slate-700 py-3 hover:bg-white/5 transition ease-linear duration-150">
       <i class="pi pi-{{item.data && item.data['icon']}} mr-4"></i>
-      <div class="flex flex-col">
+      <div class="flex flex-col" *ngIf="!isNavContracted">
         <span class="text-lg font-bold leading-8 text-white">{{item.data && item.data['title']}}</span>
       </div>
     </a>
     <a *ngIf="showEvaluacionSEO" [routerLink]="'/evaluacion-seo'" routerLinkActive="active-link" class="w-full px-2 inline-flex items-center border-b border-slate-700 py-3 hover:bg-white/5 transition ease-linear duration-150">
       <i class="pi pi-hammer mr-4"></i>
-      <div class="flex flex-col">
+      <div class="flex flex-col" *ngIf="!isNavContracted">
         <span class="text-lg font-bold leading-8 text-white">Evaluación SEO</span>
       </div>
     </a>
     <a *ngIf="showAnalisisTelus" [routerLink]="'/analisis-telus'" routerLinkActive="active-link" class="w-full px-2 inline-flex items-center border-b border-slate-700 py-3 hover:bg-white/5 transition ease-linear duration-150">
       <i class="pi pi-chart-bar mr-4"></i>
-      <div class="flex flex-col">
+      <div class="flex flex-col" *ngIf="!isNavContracted">
         <span class="text-lg font-bold leading-8 text-white">Análisis Telus</span>
       </div>
     </a>
@@ -37,4 +37,4 @@
       <mat-icon>near_me</mat-icon> <!-- Icono de avión de papel -->
     </button>
   </div>
-  
+</div>
