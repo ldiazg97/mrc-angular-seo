@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit,Renderer2, ElementRef } from '@angular/core';
 import { MenuService } from '../../../Services/menu.service';
-import { routes } from '../../../app.routes';
+import { misRoutes, routes } from '../../../app.routes';
 import { Router, NavigationEnd, Event, RouterModule } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
@@ -23,7 +23,7 @@ export class NavComponent implements OnInit {
   isNavContracted: boolean = false;
   logoSrc: string = '../../../../assets/Logos/SEOWEBMAS.svg';
 
-  public menuItems = routes
+  public menuItems = misRoutes
     .filter((route) => route.path !== '')
     .filter((route) => route.path !== 'sitios-web-compartidos')
     .filter((route) => route.path !== 'evaluacion-seo')
