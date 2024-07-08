@@ -54,6 +54,11 @@ export class HeaderComponent implements OnInit {
         routerLink: '/propiedad/listar/compartidas',
       },
       {
+        label: 'Organizaciones Compartidas',
+        icon: 'pi pi-eject',
+        routerLink: '/administrar/organizaciones/listar',
+      },
+      {
         label: 'Valoraciones de Variables',
         icon: 'pi pi-star-fill',
         routerLink: '/administrar/valoraciones',
@@ -76,15 +81,47 @@ export class HeaderComponent implements OnInit {
     ];
 
     this.configurarItems = [
-      { label: 'Sentencias', icon: 'pi pi-book', routerLink:'/administrar/sentencias'},
-      { label: 'Ayuda', icon: 'pi pi-question-circle', routerLink:'/administrar/ayuda/listar' },
-      { label: 'Terminos', icon: 'pi pi-file-edit', routerLink:'/administrar/terminos/listar' },
-      { label: 'Equipo de Seguimiento', icon: 'pi pi-eye', routerLink:'/administrar/comercial/listar' },
-      { label: 'Notificaciones', icon: 'pi pi-bell', routerLink:'/notificaciones/listar' },
-      { label: 'Bloques', icon: 'pi pi-clone', routerLink:'/bloque/listar' },
-      { label: 'Rango de Tiempo', icon: 'pi pi-hourglass', routerLink:'/rango/listar' },
-      { label: 'Paquetes', icon: 'pi pi-objects-column', routerLink:'/paquete/listar' },
-      { label: 'Permisos Especiales', icon: 'pi pi-lock', routerLink:'/asignar_paquetes/listar' },
+      {
+        label: 'Sentencias',
+        icon: 'pi pi-book',
+        routerLink: '/administrar/sentencias',
+      },
+      {
+        label: 'Ayuda',
+        icon: 'pi pi-question-circle',
+        routerLink: '/administrar/ayuda/listar',
+      },
+      {
+        label: 'Terminos',
+        icon: 'pi pi-file-edit',
+        routerLink: '/administrar/terminos/listar',
+      },
+      {
+        label: 'Equipo de Seguimiento',
+        icon: 'pi pi-eye',
+        routerLink: '/administrar/comercial/listar',
+      },
+      {
+        label: 'Notificaciones',
+        icon: 'pi pi-bell',
+        routerLink: '/notificaciones/listar',
+      },
+      { label: 'Bloques', icon: 'pi pi-clone', routerLink: '/bloque/listar' },
+      {
+        label: 'Rango de Tiempo',
+        icon: 'pi pi-hourglass',
+        routerLink: '/rango/listar',
+      },
+      {
+        label: 'Paquetes',
+        icon: 'pi pi-objects-column',
+        routerLink: '/paquete/listar',
+      },
+      {
+        label: 'Permisos Especiales',
+        icon: 'pi pi-lock',
+        routerLink: '/asignar_paquetes/listar',
+      },
     ];
 
     this.auditoriaItems = [

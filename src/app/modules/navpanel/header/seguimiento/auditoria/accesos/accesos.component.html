@@ -1,1 +1,52 @@
-<p>accesos works!</p>
+<div style="margin-top: 15px">
+  <mat-toolbar class="custom-toolbar">
+    <mat-icon fontIcon="format_align_left" class="icon-left-margin"></mat-icon>
+    <span>ACCESOS</span>
+    <span style="flex: 1"></span>
+    <!-- Espaciador flexible -->
+  </mat-toolbar>
+
+  <div class="linea-separadora"></div>
+  <!-- Divisor -->
+  <p-table
+    #dt1
+    [globalFilterFields]="['Usuario', 'Acceso', 'Ip']"
+    [value]="acceso"
+    styleClass="p-datatable-striped"
+    [scrollable]="true"
+    scrollHeight="auto"
+    [tableStyle]="{ 'min-width': '50rem' }"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex">
+        <p-iconField iconPosition="space-between" class="ml-auto">
+          <p-inputIcon class="my-mod">
+            <i class="pi pi-search"></i>
+          </p-inputIcon>
+          <input
+            pInputText
+            type="text"
+            (input)="onInputChange($event)"
+            placeholder="Buscar..."
+          />
+        </p-iconField>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="center-align">#</th>
+        <th class="center-align">Usuario</th>
+        <th class="center-align">Acceso</th>
+        <th class="center-align">Ip</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-acceso>
+      <tr *ngIf="tableVisible1 === true">
+        <td class="center-align">{{ acceso.Numero }}</td>
+        <td class="center-align">{{ acceso.Usuario }}</td>
+        <td class="center-align">{{ acceso.Acceso }}</td>
+        <td class="center-align">{{ acceso.IP }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

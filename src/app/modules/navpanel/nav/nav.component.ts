@@ -5,7 +5,7 @@ import { Router, NavigationEnd, Event, RouterModule } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
-import { NavServiceService } from './nav-service.service';
+// import { NavServiceService } from './nav-service.service';
 import { Observable, Subscription } from 'rxjs';
 import { NavService } from '../../../Services/nav.service';
 
@@ -43,7 +43,7 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     this.isNavContracted$.subscribe(contracted => {
       this.isNavContracted = contracted;
-      this.logoSrc = contracted ? '../../../../assets/Logos/SEO WEB MAS-01.svg' : '../../../../assets/Logos/SEOWEBMAS.svg';
+      this.logoSrc = contracted ? '../../../../assets/Logos/SEO WEB MASwhite-02.svg' : '../../../../assets/Logos/SEOWEBMAS.svg';
       if (contracted) {
         this.renderer.addClass(this.el.nativeElement, 'contract');
       } else {

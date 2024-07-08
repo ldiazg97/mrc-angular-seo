@@ -24,6 +24,7 @@ import { SetenciasComponent } from './modules/navpanel/header/seguimiento/config
 import { SpecialPermissionComponent } from './modules/navpanel/header/seguimiento/config-menu/special-permission/special-permission.component';
 import { TerminosComponent } from './modules/navpanel/header/seguimiento/config-menu/terminos/terminos.component';
 import { TimeRangeComponent } from './modules/navpanel/header/seguimiento/config-menu/time-range/time-range.component';
+import { OrganizationCompComponent } from './modules/navpanel/header/seguimiento/seguimiento-menu/organization-comp/organization-comp.component';
 
 export const misRoutes: Routes = [
   {
@@ -75,10 +76,11 @@ export const seguimiento: Routes = [
   { path: 'administrar/sitiosweb', component: SitesComponent },
   { path: 'administrar/valoraciones', component: VarValComponent },
   { path: 'administrar/comentario/listar', component: CommentComponent },
+  { path: 'administrar/organizaciones/listar', component: OrganizationCompComponent },
   { path: 'administrar/webmaster/listar', component: WebmasterComponent },
   { path: 'administrar/sitiosweb/prueba/gratis', component: SitesEnpruebaComponent},
   { path: 'propiedad/listar/compartidas', component: SitesSendComponent },
-  //configuracion
+  //configuracion                                       
   {path:'administrar/sentencias', component:SetenciasComponent},
   {path:'administrar/ayuda/listar', component:AyudaComponent},
   {path:'administrar/terminos/listar', component:TerminosComponent},
