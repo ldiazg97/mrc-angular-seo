@@ -62,6 +62,18 @@ export class HeaderComponent implements OnInit {
         label: 'Valoraciones de Variables',
         icon: 'pi pi-star-fill',
         routerLink: '/administrar/valoraciones',
+        items: [ // Añadir submenús aquí
+          {
+            label: 'Submenu 1',
+            icon: 'pi pi-fw pi-list',
+            routerLink: '/administrar/valoraciones/submenu1',
+          },
+          {
+            label: 'Submenu 2',
+            icon: 'pi pi-fw pi-list',
+            routerLink: '/administrar/valoraciones/submenu2',
+          },
+        ]
       },
       {
         label: 'Comentarios',

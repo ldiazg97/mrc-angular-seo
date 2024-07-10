@@ -24,6 +24,7 @@ export class NavComponent implements OnInit {
   logoSrc: string = '../../../../assets/Logos/SEOWEBMAS.svg';
 
   public menuItems = misRoutes
+
     .filter((route) => route.path !== '')
     .filter((route) => route.path !== 'sitios-web-compartidos')
     .filter((route) => route.path !== 'evaluacion-seo')
