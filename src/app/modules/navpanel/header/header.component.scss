@@ -168,3 +168,28 @@ main {
 .submenu li:hover {
   background-color: #f1f1f1;
 }
+
+
+/* Estilos para el submenú */
+/* Estilos para el submenú */
+.p-menuitem {
+  position: relative;
+}
+
+.p-menuitem .p-submenu-list {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 1000;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Mostrar el submenú al pasar el cursor sobre el elemento padre */
+.p-menuitem:hover > .p-submenu-list {
+  display: block;
+}
+
+
